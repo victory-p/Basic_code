@@ -42,11 +42,21 @@ class Test {
             ),
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.capsules, size: 45,),
+              icon: Icon(Icons.local_hospital_outlined, size: 38,),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined, size:  38,),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.capsules, size: 38,),
               label: '',
             ),
           ],
           currentIndex: _selectedIndex,
           unselectedItemColor: Color(0xFFBEBEBE),
+          //unselectedItemColor: Colors.deepPurpleAccent,
           selectedItemColor: Theme.of(context).colorScheme.primary,
           onTap: (int index) {
             _onItemTapped(index, context);
@@ -55,3 +65,4 @@ class Test {
     );
   }
 }
+

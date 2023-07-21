@@ -6,6 +6,7 @@ import 'mypage.dart';
 import 'bag.dart';
 import 'pharmacy.dart';
 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -14,16 +15,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  /* int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
@@ -38,6 +34,20 @@ class _MyHomePageState extends State<MyHomePage> {
               Icons.list_alt_rounded,
               size: 40,
               color: Colors.white,
+
+        appBar: AppBar(
+
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          actions: [
+            IconButton(
+                onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
+                  ));},
+                icon:Icon(
+                  Icons.list_alt_rounded,
+                  size: 40,
+                  color: Colors.white,
+                )
             ),
           ),
           IconButton(
