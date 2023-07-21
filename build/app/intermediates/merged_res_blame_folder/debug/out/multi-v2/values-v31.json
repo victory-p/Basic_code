@@ -4,14 +4,14 @@
             "outputFile": "com.example.hellonong.app-mergeDebugResources-9:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "/Users/jeonhyewon/AndroidStudioProjects/hellonong/android/app/src/main/res/values-v31/styles.xml",
+                    "source": "/Users/jeonhyewon/AndroidStudioProjects/Basic_code/android/app/src/main/res/values-v31/styles.xml",
                     "from": {
-                        "startLines": "3,-1",
-                        "startColumns": "4,-1",
-                        "startOffsets": "173,-1",
-                        "endLines": "8,-1",
-                        "endColumns": "12,-1",
-                        "endOffsets": "530,-1"
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,881",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "530,1045"
                     },
                     "to": {
                         "startLines": "2,8",
@@ -20,30 +20,6 @@
                         "endLines": "7,10",
                         "endColumns": "12,12",
                         "endOffsets": "412,581"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/jeonhyewon/.gradle/daemon/7.5/com.example.hellonong.app-mergeDebugResources-9:/values-v31/values-v31.xml",
-            "map": [
-                {
-                    "source": "/Users/jeonhyewon/AndroidStudioProjects/hellonong/android/app/src/main/res/values-v31/styles.xml",
-                    "from": {
-                        "startLines": "3,17",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,1047",
-                        "endLines": "10,19",
-                        "endColumns": "12,12",
-                        "endOffsets": "696,1211"
-                    },
-                    "to": {
-                        "startLines": "2,10",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,583",
-                        "endLines": "9,12",
-                        "endColumns": "12,12",
-                        "endOffsets": "578,747"
                     }
                 }
             ]
