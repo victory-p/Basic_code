@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 
 import 'mypage.dart';
+import 'bag.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -29,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: [
             IconButton(
                 onPressed: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => MyHomePage() //page 간 이동
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
                   ));},
                 icon:Icon(
                   Icons.list_alt_rounded,
