@@ -4,6 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 
 import 'home.dart';
+import 'pharmacy.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

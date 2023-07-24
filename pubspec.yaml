@@ -64,6 +64,8 @@ flutter:
     - assets/images/Pharmacy.png
     - assets/images/Frame 2608516.png
     - assets/images/bag.png
+    - assets/images/body.png
+
 
   # To add assets to your application, add an assets section, like this:
    #assets:

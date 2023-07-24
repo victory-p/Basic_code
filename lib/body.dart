@@ -37,22 +37,30 @@ class _TestScreenState extends State<TestScreen> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
-              onPressed: (){/*
-                Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
-                ));*/},
-              icon:Icon(
-                Icons.list_alt_rounded,
-                size: 40,
-                color: Colors.white,
-              )
+            onPressed: () {
+              /*Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Bag()), //page 간 이동
+              );*/
+            },
+            icon: Icon(
+              Icons.list_alt_rounded,
+              size: 40,
+              color: Colors.white,
+            ),
           ),
           IconButton(
-              onPressed: (){/*Navigator.push(context,MaterialPageRoute(builder: (context) => MyPage()));*/},
-              icon:Icon(
-                Icons.person_outline,
-                size: 40,
-                color: Colors.white,
-              )
+            onPressed: () {
+              /*Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyPage()),
+              );*/
+            },
+            icon: Icon(
+              Icons.person_outline,
+              size: 40,
+              color: Colors.white,
+            ),
           )
         ],
       ),
@@ -206,19 +214,20 @@ class _TestScreenState extends State<TestScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_hospital_outlined, size: 45,),
+            icon: Icon(Icons.local_hospital_outlined, size: 45),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined, size: 45,),
+            icon: Icon(Icons.home_outlined, size: 50),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.capsules, size: 45,),
+            icon: Icon(FontAwesomeIcons.capsules, size: 45),
             label: '',
           ),
         ],
         currentIndex: 0,
+        unselectedItemColor: Color(0xFFBEBEBE),
         selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: (index) {
           // Add navigation logic here
