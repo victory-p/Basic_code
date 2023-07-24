@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		8EFUpXuubP7A+htQte3D1Gb1OW0=
+		rAuJ9p6YTBAP8uUPOh6f0P8JgJA=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		jfuD1qH62n7ok1bavG8SVgIs/c0=
+		hTMtX7mBZHXOBFiukl6MzI50VgA=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -36,6 +36,10 @@
 		<data>
 		xEIXyHLmImSvgsihRAT5qr1YgUw=
 		</data>
+		<key>flutter_assets/assets/images/afternoon.png</key>
+		<data>
+		GkIa2S273mwcJqSPpQdUCj1xee8=
+		</data>
 		<key>flutter_assets/assets/images/bag.png</key>
 		<data>
 		gGgHmCSsSNxiofr678zmUE/4izc=
@@ -43,6 +47,22 @@
 		<key>flutter_assets/assets/images/body.png</key>
 		<data>
 		Tjsi0C8PC8qX6NKpoKALZbvhiIg=
+		</data>
+		<key>flutter_assets/assets/images/checkbox.png</key>
+		<data>
+		WIaB+NSpHQ3zwb5/dlRfxlHTbfo=
+		</data>
+		<key>flutter_assets/assets/images/evening.png</key>
+		<data>
+		RNX2rZEwf0ptCpZLnkNUbKE0a0s=
+		</data>
+		<key>flutter_assets/assets/images/morning.png</key>
+		<data>
+		6IanmbXpwNxzmwokR9o8dVajRCE=
+		</data>
+		<key>flutter_assets/assets/images/okay.png</key>
+		<data>
+		5PkxdeNjH33QL8XLAYUnI5OH4Fw=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -54,7 +74,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		v71JmAuFZkd6yAQ8bYPvFN+alS8=
+		pF4lzpnmWl3SZzKR7o4F1OdUH8o=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -87,14 +107,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mp0CR61YHZXfYnx0ysO6bGgui7kTnyLx/U9DRbqYHcw=
+			qq11tJELWRmsZbWPh1kwNpvNd/AX7MX98hL4gzTXjag=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vJkfGFRLVjTfJpfLiYWCUmvaamJ70zahCtU+0YZWEj0=
+			ScJAKwZNv1ay1Nla/2nGYzvUy4S0s3QRDp+yu1dFi3c=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -132,6 +152,13 @@
 			yy1RmMc0uqARAHCGQVSpwY1EPAI5kDvks/JOUc86tfk=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/afternoon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Nn5sEOdMLMDz/712gR+mvFT/1275AHSER22Eh5nI21w=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/bag.png</key>
 		<dict>
 			<key>hash2</key>
@@ -144,6 +171,34 @@
 			<key>hash2</key>
 			<data>
 			E3Yq594a1XGhkEGfvSO/35IGCSOEPKLSW2vqlqWQs/Y=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/checkbox.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MmhXFb/L2rkd9NS0FXVrxngwA5Rpm0FEdwoog3GQMt8=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/evening.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ubyIjtzahN+fV06efQZj8DH72ldBu0yOjZO43nILpms=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/morning.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			505wBqBFYDqr1LdCaYSZv10qfmqyn6jc7ghwI2k7eUU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/okay.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			e5ZTqmZ44peoBg+3vx58iQh/NJmqv7YcLxg5ou1/4NU=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -164,7 +219,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1iIIVGjfLKADvRk/1WGHlBTndqLEx/eyhyKA+BoYf2o=
+			LwHE5CX3pPKZeoxtwhy/QW65rjtpjxKb42m5+qtWmI4=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
