@@ -277,7 +277,7 @@ class _PharmacyState extends State<Pharmacy> {
       floatingActionButton: GestureDetector(
         onTap: () {
           // Replace 'NextPage()' with the actual class for the next page you want to navigate to.
-          //Navigator.push(context, MaterialPageRoute(builder: (context) => Pharmacy_next()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Pharmacy_next()));
         },
         child: Container( // Wrap the Image.asset with a Container.
           child: Image.asset(
