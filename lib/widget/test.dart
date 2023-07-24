@@ -42,15 +42,6 @@ class Test {
             ),
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.capsules, size: 45,),
-              icon: Icon(Icons.local_hospital_outlined, size: 38,),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined, size:  38,),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.capsules, size: 38,),
               label: '',
             ),
           ],

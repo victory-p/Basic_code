@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Fri Jul 21 14:27:43 KST 2023
+#Mon Jul 24 10:16:07 KST 2023
 base.0=/Users/jeonhyewon/AndroidStudioProjects/Basic_code/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-=======
-#Fri Jul 21 11:14:01 KST 2023
-base.0=C\:\\flutterProject\\seasun\\seasun_project\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
->>>>>>> origin/main
 path.0=classes.dex
 renamed.0=classes.dex
