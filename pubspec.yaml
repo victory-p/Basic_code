@@ -65,6 +65,8 @@ flutter:
     - assets/images/Frame 2608516.png
     - assets/images/bag.png
     - assets/images/body.png
+    - assets/images/checkbox.png
+    - assets/images/okay.png
 
 
   # To add assets to your application, add an assets section, like this:

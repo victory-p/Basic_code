@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/pharmacy_next.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'bag.dart';
@@ -272,8 +273,19 @@ class _PharmacyState extends State<Pharmacy> {
         ],
       ),
       bottomNavigationBar: test.bottmNavi(context),
+
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          // Replace 'NextPage()' with the actual class for the next page you want to navigate to.
+          //Navigator.push(context, MaterialPageRoute(builder: (context) => Pharmacy_next()));
+        },
+        child: Container( // Wrap the Image.asset with a Container.
+          child: Image.asset(
+            'assets/images/checkbox.png',
+            fit: BoxFit.cover, // Adjust the fit property according to your needs.
+          ),
+        ),
+      ),
     );
-
-
   }
 }
