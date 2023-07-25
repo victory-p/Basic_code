@@ -50,13 +50,11 @@ class _Pharmacy_nextState extends State<Pharmacy_next> {
         ),
         body: Column(
             children: [
-              //  if(_isSelected1 =)
-              ]
 
+              ]
 
         ),
       bottomNavigationBar: test.bottmNavi(context),
-
     );
   }
   }
