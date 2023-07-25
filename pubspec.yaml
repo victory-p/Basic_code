@@ -70,6 +70,7 @@ flutter:
     - assets/images/morning.png
     - assets/images/afternoon.png
     - assets/images/evening.png
+    - assets/images/face.png
 
 
   # To add assets to your application, add an assets section, like this:
