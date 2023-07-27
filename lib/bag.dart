@@ -14,6 +14,7 @@ class Bag extends StatefulWidget {
 
 class _BagState extends State<Bag> {
   Test test = Test(1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

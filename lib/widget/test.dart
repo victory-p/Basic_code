@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../home.dart';
+import '../pharmacy.dart';
 
 class Test {
   late final int _selectedIndex;
@@ -14,6 +15,12 @@ class Test {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyHomePage()),
+      );
+    }
+    if (_selectedIndex == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Pharmacy()),
       );
     }
   }
