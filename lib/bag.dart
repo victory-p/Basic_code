@@ -4,6 +4,7 @@ import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'main.dart';
+import 'mypage.dart';
 
 class Bag extends StatefulWidget {
   const Bag({Key? key});
@@ -17,100 +18,104 @@ class _BagState extends State<Bag> {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()),
-              );
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
+              onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
+                ));},
+              icon:Icon(
+                Icons.list_alt_rounded,
+                size: 40,
+                color: Colors.white,
+              )
           ),
-          Icon(
-            Icons.person_outline,
-            size: 40,
-            color: Colors.white,
-          ),
+          IconButton(
+              onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => MyPage()));},
+              icon:Icon(
+                Icons.person_outline,
+                size: 40,
+                color: Colors.white,
+              )
+          )
         ],
       ),
       body: Center(
-        child: Container(
-          width: 335,
-          height: 610,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: Color(0xFFC1C1C1),
-              width: 1,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 20), // 위, 아래로 20픽셀의 여백 추가
+          child: Container(
+            width: screenWidth * 0.9,
+            height: screenHeight * 0.9,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: Color(0xFFC1C1C1),
+                width: 1,
+              ),
+            ),
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 0), // 이미지 위에 20픽셀의 여백 추가
+                  child: Image.asset(
+                    "assets/images/bag.png",
+                    width: screenWidth * 0.2,
+                    height: screenHeight * 0.13,
+                  ),
+                ),
+                Positioned(
+                  bottom: screenHeight * 0.028, // 아래 컨테이너 위에 20픽셀의 여백 추가
+                  left: screenWidth * 0.05, // 왼쪽 컨테이너 위치 설정
+                  child: Container(
+                    width: screenWidth * 0.38,
+                    height: screenHeight * 0.065,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 37, // 아이콘 크기 조정
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: screenHeight * 0.028, // 아래 컨테이너 위에 20픽셀의 여백 추가
+                  right: screenWidth * 0.05, // 오른쪽 컨테이너 위치 설정
+                  child: Container(
+                    width: screenWidth * 0.38,
+                    height: screenHeight * 0.065,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                        size: 37, // 아이콘 크기 조정
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              Positioned(
-                top: 20, // 이미지 위에 20의 공간 추가
-                child: Image.asset(
-                  "assets/images/bag.png",
-                  width: 50,
-                  height: 50,
-                ),
-              ),
-              Positioned(
-                bottom: 25, // 아래 컨테이너 위에 20의 공간 추가
-                left: 20, // 왼쪽 컨테이너 위치 설정
-                child: Container(
-                  width: 135,
-                  height: 55,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 37, // 아이콘 크기 조정
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 25, // 아래 컨테이너 위에 20의 공간 추가
-                right: 20, // 오른쪽 컨테이너 위치 설정
-                child: Container(
-                  width: 135,
-                  height: 55,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.check,
-                      color: Colors.white,
-                      size: 37, // 아이콘 크기 조정
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
-
       ),
       bottomNavigationBar: test.bottmNavi(context),
 
     );
   }
 }
-
-
