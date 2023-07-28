@@ -79,6 +79,8 @@ flutter:
     - assets/images/leg.png
     - assets/images/leftArm1.png
     - assets/images/rightArm1.png
+    - assets/images/afterrice.png
+    - assets/images/beforerice.png
 
 
   # To add assets to your application, add an assets section, like this:
