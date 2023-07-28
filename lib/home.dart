@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
-
+import 'package:hellonong/widget/test.dart';
 import 'body.dart';
 import 'mypage.dart';
 import 'bag.dart';
@@ -15,6 +15,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Test test = Test(1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
