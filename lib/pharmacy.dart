@@ -6,7 +6,16 @@ import 'bag.dart';
 import 'mypage.dart';
 
 class Pharmacy extends StatefulWidget {
-  const Pharmacy({super.key});
+  final List<bool> isSelected1;
+  final List<bool> isSelected2;
+  final List<bool> isSelected3;
+
+  // 생성자 정의
+  const Pharmacy({
+    required this.isSelected1,
+    required this.isSelected2,
+    required this.isSelected3,
+  });
 
   @override
   State<Pharmacy> createState() => _PharmacyState();
@@ -295,6 +304,7 @@ class _PharmacyState extends State<Pharmacy> {
       floatingActionButton: GestureDetector(
         onTap: () {
           _showDialog(); // 이미지를 탭하면 다이얼로그 표시
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyNext(isSelected1: [], isSelected2: [], isSelected3: [],)));
         },
         child: Container(
           width: 100, // 너비를 늘려서 가로로 긴 버튼으로 만듭니다.
@@ -320,7 +330,7 @@ class _PharmacyState extends State<Pharmacy> {
           content: Text(
             '정확한 복용정보를 선택하셨다면 확인 버튼을 눌러주세요.',
             style: TextStyle(
-            fontSize: 17, // 다이얼로그 내용 텍스트 사이즈 변경
+              fontSize: 17, // 다이얼로그 내용 텍스트 사이즈 변경
             ),
           ),
           actions: [
@@ -336,16 +346,26 @@ class _PharmacyState extends State<Pharmacy> {
               ),
             ),
             TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Pharmacy_next()));
-              },
               child: Text(
                 '확인',
                 style: TextStyle(
                   color: Colors.blueAccent, // 확인 버튼 텍스트 색상 변경
                 ),
               ),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyNext(isSelected1: [], isSelected2: [], isSelected3: [],)));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Pharmacy(
+                      isSelected1: _isSelected1,
+                      isSelected2: _isSelected2,
+                      isSelected3: _isSelected3,
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         );

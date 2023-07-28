@@ -155,7 +155,7 @@ class _MyPageState extends State<MyPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Pharmacy(),
+                            builder: (context) => Pharmacy(isSelected1: [], isSelected2: [], isSelected3: [],),
                           ),
                         ).then((value) {
                           setState(() {
