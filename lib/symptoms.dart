@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/widget/test.dart';
 import 'mypage.dart';
 import 'bag.dart';
+import 'opinion.dart';
 
 class ListItemData {
   bool isSwitched;
@@ -113,7 +114,7 @@ class _SymptomsState extends State<Symptoms> {
                             ),
                           ),
                           TextSpan(
-                            text: '아픈 부위 : ',
+                            text: '아픈 부위 : ${listItemData.body}\n',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.normal,
@@ -121,23 +122,7 @@ class _SymptomsState extends State<Symptoms> {
                             ),
                           ),
                           TextSpan(
-                            text: '${listItemData.body}\n',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '증상 : ',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '${listItemData.symptom}',
+                            text: '증상 : ${listItemData.symptom}',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.normal,
@@ -166,7 +151,7 @@ class _SymptomsState extends State<Symptoms> {
                   Navigator.push(
                     context,
                     // 이동할 페이지 지정 (MyPage 대신 다른 페이지로 수정 가능)
-                    MaterialPageRoute(builder: (context) => MyPage()),
+                    MaterialPageRoute(builder: (context) => Opinion()),
                   );
                 },
                 child: Row(
@@ -186,13 +171,12 @@ class _SymptomsState extends State<Symptoms> {
               ),
             ],
           ),
-          SizedBox(width: 20), // 20픽셀의 빈 공간 추가
           GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
                 // 이동할 페이지 지정 (MyPage 대신 다른 페이지로 수정 가능)
-                MaterialPageRoute(builder: (context) => MyPage()),
+                MaterialPageRoute(builder: (context) => Opinion()),
               );
             },
             child: Container(
