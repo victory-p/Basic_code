@@ -56,6 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.fromLTRB(0, 26, 0, 0),
           child: Column(
             children: [
+              SizedBox(
+                height: 50,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -64,8 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Container(
-                  height: 150,
-                  width: 178,
+                  height: 192,
+                  width: 229,
                   child: Image.asset(
                     "assets/images/Frame 2608516.png",
                     width: 72,
@@ -87,10 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                child: Text("병원"),
+                child: Text("병원",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
               ),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               GestureDetector(
                 onTap: () {
@@ -100,12 +105,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Container(
-                  height: 150,
-                  width: 178,
+                  height: 192,
+                  width: 229,
                   child: Image.asset(
                     "assets/images/Pharmacy.png",
-                    width: 72,
-                    height: 72,
+                    width: 100,
+                    height: 100,
                   ),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -123,43 +128,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                child: Text("약국"),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Usage()),
-                  );
-                },
-                child: Container(
-                  height: 150,
-                  width: 178,
-                  child: Image.asset(
-                    "assets/images/Zoom in.png",
-                    width: 72,
-                    height: 72,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.7),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ),
+                child: Text("약국",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                child: Text("사용방법"),
               ),
             ],
           ),
