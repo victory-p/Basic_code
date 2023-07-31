@@ -31,7 +31,7 @@ class _SymptomsState extends State<Symptoms> {
     ListItemData(isSwitched: false, color: Colors.black, body: "코", symptom: "콧물"),
   ];
 
-  Test test = Test(0);
+  Test test = Test(1);
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../body.dart';
 import '../home.dart';
+import '../mypage.dart';
 import '../pharmacy.dart';
 
 class Test {
@@ -11,16 +13,28 @@ class Test {
 
   void _onItemTapped(int index, BuildContext context) {
     _selectedIndex = index;
-    if (_selectedIndex == 1) {
+    if (_selectedIndex == 0) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyHomePage()),
+      );
+    }
+    if (_selectedIndex == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TestScreen()),
       );
     }
     if (_selectedIndex == 2) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Pharmacy()),
+      );
+    }
+    if (_selectedIndex == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MyPage()),
       );
     }
   }
@@ -40,15 +54,19 @@ class Test {
       child: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_hospital_outlined, size: 45,),
+              icon: Icon(Icons.home_outlined,size:  50,),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined, size:  50,),
+              icon: Icon(Icons.local_hospital_outlined,size: 45,),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.capsules, size: 45,),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.user, size: 45,),
               label: '',
             ),
           ],
