@@ -28,7 +28,7 @@ class Test {
     if (_selectedIndex == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Pharmacy()),
+        MaterialPageRoute(builder: (context) => Pharmacy(isSelected1: [], isSelected2: [], isSelected3: [],)),
       );
     }
     if (_selectedIndex == 3) {

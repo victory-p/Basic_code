@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/usage.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
-import 'package:hellonong/widget/test.dart';
+
 import 'body.dart';
 import 'mypage.dart';
 import 'bag.dart';
-import 'pharmacy.dart';
-// import 'test_screen.dart'; // Don't forget to import the TestScreen widget if it's in a different file.
+import 'pharmacy.dart'; // 혹은 필요 없는 경우 주석 처리
+
+// import 'test_screen.dart'; // TestScreen widget가 필요한 경우 주석 해제
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -15,8 +17,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Test test = Test(1);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TestScreen()),
+                    MaterialPageRoute(builder: (context) => TestScreen()), // 필요한 경우 주석 해제
                   );
                 },
                 child: Container(
@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Pharmacy()),
+                    MaterialPageRoute(builder: (context) => Pharmacy(isSelected1: [], isSelected2: [], isSelected3: [],)),
                   );
                 },
                 child: Container(
@@ -128,25 +128,33 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: 5,
               ),
-              Container(
-                height: 150,
-                width: 178,
-                child: Image.asset(
-                  "assets/images/Zoom in.png",
-                  width: 72,
-                  height: 72,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.7),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Usage()),
+                  );
+                },
+                child: Container(
+                  height: 150,
+                  width: 178,
+                  child: Image.asset(
+                    "assets/images/Zoom in.png",
+                    width: 72,
+                    height: 72,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.7),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
