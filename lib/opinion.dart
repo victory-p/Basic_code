@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'bag.dart';
 import 'mypage.dart';
@@ -6,15 +7,22 @@ import 'mypage.dart';
 class ListItemData {
   bool isSwitched;
   Color color;
-  String symptom;
+  String opinion;
   String body;
 
   ListItemData({
     required this.isSwitched,
     required this.color,
-    required this.symptom,
+    required this.opinion,
     required this.body,
   });
+}
+
+class ChecklistItem {
+  bool isChecked;
+  String title;
+
+  ChecklistItem({required this.isChecked, required this.title});
 }
 
 class Opinion extends StatefulWidget {
@@ -26,8 +34,8 @@ class Opinion extends StatefulWidget {
 
 class _OpinionState extends State<Opinion> {
   List<ListItemData> opinionData = [
-    ListItemData(isSwitched: false, color: Colors.black, body: "머리", symptom: "두통, 발열"),
-    ListItemData(isSwitched: false, color: Colors.black, body: "코", symptom: "콧물"),
+    ListItemData(isSwitched: true, color: Colors.black, body: "머리", opinion: "감기"),
+    ListItemData(isSwitched: true, color: Colors.black, body: "코", opinion: "비염"),
   ];
 
   Test test = Test(0);
@@ -38,47 +46,7 @@ class _OpinionState extends State<Opinion> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 40,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()),
-              );
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
+      appBar: CustomAppBar(0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
@@ -134,6 +102,27 @@ class _OpinionState extends State<Opinion> {
                     ),
                   ),
                 ),
+                Positioned(
+                  top: screenHeight * 0.15, // 원하는 위치로 조정
+                  left: 20,
+                  right: 20,
+                  bottom: 20,
+                  child: ListView.builder(
+                    itemCount: opinionData.length,
+                    itemBuilder: (context, index) {
+                      ListItemData listItem = opinionData[index];
+                      return CheckboxListTile(
+                        value: listItem.isSwitched,
+                        onChanged: (value) {
+                          setState(() {
+                            opinionData[index].isSwitched = value ?? false;
+                          });
+                        },
+                        title: Text(listItem.opinion),
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),
@@ -159,7 +148,6 @@ class _OpinionState extends State<Opinion> {
       ),
     );
   }
-
 
   void _showDialog() {
     showDialog(
@@ -201,6 +189,4 @@ class _OpinionState extends State<Opinion> {
       },
     );
   }
-
-
 }
