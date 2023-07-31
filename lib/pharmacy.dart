@@ -28,11 +28,11 @@ class _PharmacyState extends State<Pharmacy> {
   Test test = Test(1);
 
   String dropdownvalue1 = '몇분';
-  var items1 = ['몇분','5분', '10분', '15분', '30분', '60분'];
+  var items1 = ['몇분', '10분', '15분', '30분', '60분'];
   String dropdownvalue2 = '몇분';
-  var items2 = ['몇분','5분', '10분', '15분', '30분', '60분'];
+  var items2 = ['몇분', '10분', '15분', '30분', '60분'];
   String dropdownvalue3 = '몇분';
-  var items3 = ['몇분','5분', '10분', '15분', '30분', '60분'];
+  var items3 = ['몇분', '10분', '15분', '30분', '60분'];
 
   String dropdownvalue4 = '몇일';
   var items4 = ['몇일','3일', '4일', '7일', '14일'];
