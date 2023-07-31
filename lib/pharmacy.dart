@@ -304,7 +304,6 @@ class _PharmacyState extends State<Pharmacy> {
       floatingActionButton: GestureDetector(
         onTap: () {
           _showDialog(); // 이미지를 탭하면 다이얼로그 표시
-          Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyNext(isSelected1: [], isSelected2: [], isSelected3: [],)));
         },
         child: Container(
           width: 100, // 너비를 늘려서 가로로 긴 버튼으로 만듭니다.
@@ -353,12 +352,11 @@ class _PharmacyState extends State<Pharmacy> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyNext(isSelected1: [], isSelected2: [], isSelected3: [],)));
+                Navigator.of(context).pop(); // 다이얼로그 닫기
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Pharmacy(
+                    builder: (context) => PharmacyNext(
                       isSelected1: _isSelected1,
                       isSelected2: _isSelected2,
                       isSelected3: _isSelected3,

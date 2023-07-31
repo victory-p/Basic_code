@@ -26,12 +26,12 @@ class _PharmacyNextState extends State<PharmacyNext> {
   @override
   Widget build(BuildContext context) {
     // Get the selected values from the widget
-    bool isBeforeBreakfast = widget.isSelected1[0];
-    bool isAfterBreakfast = widget.isSelected1[1];
-    bool isBeforeLunch = widget.isSelected2[0];
-    bool isAfterLunch = widget.isSelected2[1];
-    bool isBeforeDinner = widget.isSelected3[0];
-    bool isAfterDinner = widget.isSelected3[1];
+    bool isBeforeBreakfast = widget.isSelected1.isNotEmpty ? widget.isSelected1[0] : false;
+    bool isAfterBreakfast = widget.isSelected1.length > 1 ? widget.isSelected1[1] : false;
+    bool isBeforeLunch = widget.isSelected2.isNotEmpty ? widget.isSelected2[0] : false;
+    bool isAfterLunch = widget.isSelected2.length > 1 ? widget.isSelected2[1] : false;
+    bool isBeforeDinner = widget.isSelected3.isNotEmpty ? widget.isSelected3[0] : false;
+    bool isAfterDinner = widget.isSelected3.length > 1 ? widget.isSelected3[1] : false;
 
     return Scaffold(
       appBar: AppBar(
@@ -67,58 +67,56 @@ class _PharmacyNextState extends State<PharmacyNext> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 20),
-
-          // 하나의 그림 추가
-          Container(
-            height: 115,
-            width: 110,
-            child: Image.asset(
-              "assets/images/morning.png", // 첫 번째 이미지 파일명
-              width: 52,
-              height: 52,
-            ),
+          SizedBox(height: 75),
+          Row(
+            children: [
+              // 첫 번째 이미지와 밥 전/후 이미지를 나란히 표시
+              Image.asset(
+                "assets/images/morning.png",
+                width: 100,
+                height: 100,
+              ),
+              SizedBox(width: 25),
+              Image.asset(
+                isBeforeBreakfast ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
+                width: 100,
+                height: 100,
+              ),
+            ],
           ),
-
-          SizedBox(height: 30),
-
-          // Display the first image based on isSelected1
-          Container(
-            height: 115,
-            width: 110,
-            child: Image.asset(
-              isBeforeBreakfast
-                  ? "assets/images/beforerice.png"
-                  : "assets/images/afterrice.png", // 첫 번째 이미지를 뒤집어서 표시
-              width: 52,
-              height: 52,
-            ),
+          SizedBox(height: 40),
+          Row(
+            children: [
+              // 두 번째 이미지와 밥 전/후 이미지를 나란히 표시
+              Image.asset(
+                "assets/images/afternoon.png",
+                width: 100,
+                height: 100,
+              ),
+              SizedBox(width: 25),
+              Image.asset(
+                isBeforeLunch ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
+                width: 100,
+                height: 100,
+              ),
+            ],
           ),
-          SizedBox(height: 20),
-          // Display the second image based on isSelected2
-          Container(
-            height: 115,
-            width: 110,
-            child: Image.asset(
-              isBeforeLunch
-                  ? "assets/images/beforerice.png"
-                  : "assets/images/afterrice.png", // 두 번째 이미지를 뒤집어서 표시
-              width: 52,
-              height: 52,
-            ),
-          ),
-          SizedBox(height: 20),
-          // Display the third image based on isSelected3
-          Container(
-            height: 115,
-            width: 110,
-            child: Image.asset(
-              isBeforeDinner
-                  ? "assets/images/beforerice.png"
-                  : "assets/images/afterrice.png", // 세 번째 이미지를 뒤집어서 표시
-              width: 52,
-              height: 52,
-            ),
+          SizedBox(height: 40),
+          Row(
+            children: [
+              // 세 번째 이미지와 밥 전/후 이미지를 나란히 표시
+              Image.asset(
+                "assets/images/evening.png",
+                width: 100,
+                height: 100,
+              ),
+              SizedBox(width: 25),
+              Image.asset(
+                isBeforeDinner ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
+                width: 100,
+                height: 100,
+              ),
+            ],
           ),
         ],
       ),
