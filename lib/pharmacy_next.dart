@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'bag.dart';
+import 'home.dart';
 import 'mypage.dart';
 
 class PharmacyNext extends StatefulWidget {
@@ -76,11 +77,17 @@ class _PharmacyNextState extends State<PharmacyNext> {
                 width: 100,
                 height: 100,
               ),
-              SizedBox(width: 25),
+              SizedBox(width: 35),
               Image.asset(
                 isBeforeBreakfast ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
                 width: 100,
                 height: 100,
+              ),
+              SizedBox(width: 25),
+              Image.asset(
+                "assets/images/30mintues.png",
+                width: 120,
+                height: 80,
               ),
             ],
           ),
@@ -93,11 +100,17 @@ class _PharmacyNextState extends State<PharmacyNext> {
                 width: 100,
                 height: 100,
               ),
-              SizedBox(width: 25),
+              SizedBox(width: 35),
               Image.asset(
                 isBeforeLunch ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
                 width: 100,
                 height: 100,
+              ),
+              SizedBox(width: 25),
+              Image.asset(
+                "assets/images/30mintues.png",
+                width: 120,
+                height: 80,
               ),
             ],
           ),
@@ -110,15 +123,43 @@ class _PharmacyNextState extends State<PharmacyNext> {
                 width: 100,
                 height: 100,
               ),
-              SizedBox(width: 25),
+              SizedBox(width: 35),
               Image.asset(
                 isBeforeDinner ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
                 width: 100,
                 height: 100,
               ),
+              SizedBox(width: 25),
+              Image.asset(
+                "assets/images/30mintues.png",
+                width: 120,
+                height: 80,
+              ),
             ],
           ),
         ],
+      ),
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyHomePage(), // Replace HomeScreen with the appropriate widget from home.dart
+            ),
+          );
+        },
+        child: Container(
+          width: 100,
+          height: 50,
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(10.0),
+            image: DecorationImage(
+              image: AssetImage('assets/images/checkbox.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
       bottomNavigationBar: test.bottmNavi(context),
     );
