@@ -119,15 +119,6 @@ class _TestScreenState extends State<TestScreen> {
                                     color: Colors.black, width: 2),
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child: Center(
-                                child: Text(
-                                  '첫 번째 줄',
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
                             ),
                           ),
                           Row(
@@ -149,15 +140,6 @@ class _TestScreenState extends State<TestScreen> {
                                     border: Border.all(
                                         color: Colors.black, width: 2),
                                     borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '두 번째 줄 1번째',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        color: Colors.black,
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ),
@@ -182,15 +164,6 @@ class _TestScreenState extends State<TestScreen> {
                                           borderRadius: BorderRadius.circular(
                                               20),
                                         ),
-                                        child: Center(
-                                          child: Text(
-                                            '두 번째 줄 2번째 (상단)',
-                                            style: TextStyle(
-                                              fontSize: 24,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
                                       ),
                                     ),
                                     GestureDetector(
@@ -210,15 +183,6 @@ class _TestScreenState extends State<TestScreen> {
                                               color: Colors.black, width: 2),
                                           borderRadius: BorderRadius.circular(
                                               20),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            '두 번째 줄 2번째 (하단)',
-                                            style: TextStyle(
-                                              fontSize: 24,
-                                              color: Colors.black,
-                                            ),
-                                          ),
                                         ),
                                       ),
                                     ),
@@ -242,15 +206,6 @@ class _TestScreenState extends State<TestScreen> {
                                         color: Colors.black, width: 2),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: Center(
-                                    child: Text(
-                                      '두 번째 줄 3번째',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
                                 ),
                               ),
                             ],
@@ -270,15 +225,6 @@ class _TestScreenState extends State<TestScreen> {
                                 border: Border.all(
                                     color: Colors.black, width: 2),
                                 borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '세 번째 줄',
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    color: Colors.black,
-                                  ),
-                                ),
                               ),
                             ),
                           ),
