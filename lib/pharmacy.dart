@@ -28,11 +28,11 @@ class _PharmacyState extends State<Pharmacy> {
   Test test = Test(1);
 
   String dropdownvalue1 = '몇분';
-  var items1 = ['몇분','5분', '10분', '15분', '30분', '60분'];
+  var items1 = ['몇분', '10분', '15분', '30분', '60분'];
   String dropdownvalue2 = '몇분';
-  var items2 = ['몇분','5분', '10분', '15분', '30분', '60분'];
+  var items2 = ['몇분', '10분', '15분', '30분', '60분'];
   String dropdownvalue3 = '몇분';
-  var items3 = ['몇분','5분', '10분', '15분', '30분', '60분'];
+  var items3 = ['몇분', '10분', '15분', '30분', '60분'];
 
   String dropdownvalue4 = '몇일';
   var items4 = ['몇일','3일', '4일', '7일', '14일'];
@@ -353,12 +353,11 @@ class _PharmacyState extends State<Pharmacy> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyNext(isSelected1: [], isSelected2: [], isSelected3: [],)));
+                Navigator.of(context).pop(); // 다이얼로그 닫기
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Pharmacy(
+                    builder: (context) => PharmacyNext(
                       isSelected1: _isSelected1,
                       isSelected2: _isSelected2,
                       isSelected3: _isSelected3,

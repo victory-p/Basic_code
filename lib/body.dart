@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hellonong/widget/test.dart';
+
+import 'home.dart';
+import 'myPage.dart';
+import 'bag.dart';
+import 'face.dart';
+import 'leftArm.dart';
+import 'rightArm.dart';
+import 'top.dart';
+import 'bottom.dart';
+import 'leg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,21 +38,31 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
+  Test test = Test(1);
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme
+            .of(context)
+            .colorScheme
+            .primary,
         actions: [
           IconButton(
             onPressed: () {
-              /*Navigator.push(
+              Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Bag()), //page 간 이동
-              );*/
+                MaterialPageRoute(builder: (context) => Bag()),
+              );
             },
             icon: Icon(
               Icons.list_alt_rounded,
@@ -51,10 +72,10 @@ class _TestScreenState extends State<TestScreen> {
           ),
           IconButton(
             onPressed: () {
-              /*Navigator.push(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => MyPage()),
-              );*/
+              );
             },
             icon: Icon(
               Icons.person_outline,
@@ -82,122 +103,128 @@ class _TestScreenState extends State<TestScreen> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Container(
-                            width: double.infinity,
-                            height: screenHeight * 0.12,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(color: Colors.black, width: 2),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Center(
-                              child: Text(
-                                '첫 번째 줄',
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.black,
-                                ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Face()),
+                              );
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: screenHeight * 0.12,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(
+                                    color: Colors.black, width: 2),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                             ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                width: screenWidth * 0.3,
-                                height: screenHeight * 0.35,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.black, width: 2),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '두 번째 줄 1번째',
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                      color: Colors.black,
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => leftArm()),
+                                  );
+                                },
+                                child: Container(
+                                  width: screenWidth * 0.3,
+                                  height: screenHeight * 0.35,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    border: Border.all(
+                                        color: Colors.black, width: 2),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                 ),
                               ),
                               Expanded(
                                 child: Column(
                                   children: [
-                                    Container(
-                                      width: screenWidth * 0.3,
-                                      height: screenHeight * 0.175,
-                                      decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        border: Border.all(color: Colors.black, width: 2),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          '두 번째 줄 2번째 (상단)',
-                                          style: TextStyle(
-                                            fontSize: 24,
-                                            color: Colors.black,
-                                          ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Top()),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: screenWidth * 0.3,
+                                        height: screenHeight * 0.175,
+                                        decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          border: Border.all(
+                                              color: Colors.black, width: 2),
+                                          borderRadius: BorderRadius.circular(
+                                              20),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: screenWidth * 0.3,
-                                      height: screenHeight * 0.175,
-                                      decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        border: Border.all(color: Colors.black, width: 2),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          '두 번째 줄 2번째 (하단)',
-                                          style: TextStyle(
-                                            fontSize: 24,
-                                            color: Colors.black,
-                                          ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Bottom()),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: screenWidth * 0.3,
+                                        height: screenHeight * 0.175,
+                                        decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          border: Border.all(
+                                              color: Colors.black, width: 2),
+                                          borderRadius: BorderRadius.circular(
+                                              20),
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Container(
-                                width: screenWidth * 0.3,
-                                height: screenHeight * 0.35,
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  border: Border.all(color: Colors.black, width: 2),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '두 번째 줄 3번째',
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                      color: Colors.black,
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => rightArm()),
+                                  );
+                                },
+                                child: Container(
+                                  width: screenWidth * 0.3,
+                                  height: screenHeight * 0.35,
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    border: Border.all(
+                                        color: Colors.black, width: 2),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                 ),
                               ),
                             ],
                           ),
-                          Container(
-                            width: screenWidth * 0.5,
-                            height: screenHeight * 0.33,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(color: Colors.black, width: 2),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Center(
-                              child: Text(
-                                '세 번째 줄',
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.black,
-                                ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => leg()),
+                              );
+                            },
+                            child: Container(
+                              width: screenWidth * 0.5,
+                              height: screenHeight * 0.33,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(
+                                    color: Colors.black, width: 2),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                             ),
                           ),
@@ -211,28 +238,10 @@ class _TestScreenState extends State<TestScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_hospital_outlined, size: 45),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined, size: 50),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.capsules, size: 45),
-            label: '',
-          ),
-        ],
-        currentIndex: 0,
-        unselectedItemColor: Color(0xFFBEBEBE),
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        onTap: (index) {
-          // Add navigation logic here
-        },
-      ),
+
+    bottomNavigationBar: test.bottmNavi(context),
+
+
     );
   }
 }
