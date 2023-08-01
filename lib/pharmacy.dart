@@ -39,6 +39,16 @@ class _PharmacyState extends State<Pharmacy> {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme
@@ -85,7 +95,7 @@ class _PharmacyState extends State<Pharmacy> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 50),
+              SizedBox(width: screenWidth * 0.12),
               Expanded(
                 child: ToggleButtons(
                   children: <Widget>[
@@ -135,7 +145,7 @@ class _PharmacyState extends State<Pharmacy> {
                   ),
                 ),
               ),
-
+             // SizedBox(width: screenWidth * 0.03),
             ],
           ),
           Padding(
@@ -148,7 +158,7 @@ class _PharmacyState extends State<Pharmacy> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 50),
+              SizedBox(width: screenWidth * 0.12),
               Expanded(
                 child: ToggleButtons(
                   children: <Widget>[
@@ -174,7 +184,7 @@ class _PharmacyState extends State<Pharmacy> {
                   },
                 ),
               ),
-              SizedBox(width: 10), // 원하는 간격 조정
+              SizedBox(width: screenWidth * 0.03), // 원하는 간격 조정
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.only(right: 50.0), // 오른쪽 여백 크기 설정
@@ -212,7 +222,7 @@ class _PharmacyState extends State<Pharmacy> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 50),
+              SizedBox(width: screenWidth * 0.12),
               Expanded(
                 child: ToggleButtons(
                   children: <Widget>[
@@ -238,7 +248,7 @@ class _PharmacyState extends State<Pharmacy> {
                   },
                 ),
               ),
-              SizedBox(width: 10), // 원하는 간격 조정
+              SizedBox(width: screenWidth * 0.03), // 원하는 간격 조정
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.only(right: 50.0), // 오른쪽 여백 크기 설정
@@ -266,7 +276,7 @@ class _PharmacyState extends State<Pharmacy> {
             ],
           ),
           SizedBox(
-            height: 30,
+              height: screenHeight * 0.05,
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
@@ -276,7 +286,7 @@ class _PharmacyState extends State<Pharmacy> {
             ),
           ),
           Container(
-            width: 150,
+            width: screenWidth * 0.35,
             child: DropdownButton(
               value: dropdownvalue4,
               isExpanded: true,
