@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hellonong/widget/bottomNavi.dart';
 
 class SymptomsCategory extends StatefulWidget {
-  const SymptomsCategory({Key? key}) : super(key: key);
+  const SymptomsCategory({super.key});
 
   @override
   State<SymptomsCategory> createState() => _SymptomsCategoryState();
@@ -12,9 +11,9 @@ class SymptomsCategory extends StatefulWidget {
 class _SymptomsCategoryState extends State<SymptomsCategory> {
   final List<String> items = [
     '증상에 대한 질병 명을\n카테고리 분류에 따라 선택해주세요',
-    '자주 사용된 진단\n감기 / 타박상 등등',
+    '자주 사용된 진단\n감기 / 타박상 등',
     '건강검진 진료 관련 용어\n타박상/ 고지혈증/ 고혈당/ 빈혈 등',
-    '이비인후과 /청각장애 관련 용어\n만성중이염/ 중이염/ 미로염 /이경화증 등등',
+    '이비인후과 /청각장애 관련 용어\n만성중이염/ 중이염/ 미로염 /이경화증 등',
     '생식 및 임신/출산 관련 용어\n폐경/ 진통/ 입덧/ 산후우울증 등',
     '호흡기계 진료 관련 용어\n감기/ 가래/ 코피/ 호흡곤란/ 편도염 등',
     '순환기/심혈관계 진료 관련 용어\n하지정맥류/ 부정맥/ 심근경색증 등',
@@ -37,35 +36,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              /*Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()), //page 간 이동
-              );*/
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              /*Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );*/
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          )
-        ],
+        title: Text('둥근 모서리 컨테이너와 목록'),
       ),
       body: Center(
         child: Padding(
@@ -74,7 +45,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
             width: screenWidth * 0.9,
             height: screenHeight * 0.9,
             decoration: BoxDecoration(
-              color: Colors.grey[200],
+              color: Theme.of(context).colorScheme.onPrimary,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
                 color: Colors.black38,
@@ -105,7 +76,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                 } else {
                   return ListTile(
                     leading: CircleAvatar(
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
                       child: Text(
                         '$index',
                         style: TextStyle(
@@ -138,7 +109,6 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavi(),
     );
   }
 }
