@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'widget/appbar.dart';
+
 class SymptomsCategory extends StatefulWidget {
   const SymptomsCategory({super.key});
 
@@ -35,9 +37,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('둥근 모서리 컨테이너와 목록'),
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),

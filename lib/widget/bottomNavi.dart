@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hellonong/home.dart';
 
+import '../app.dart';
+import '../body.dart';
+import '../myPage.dart';
+import '../pharmacy.dart';
+
 class BottomNavi extends StatefulWidget {
   const BottomNavi({super.key});
 
@@ -15,9 +20,9 @@ class _BottomNaviState extends State<BottomNavi> {
 
   final List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
-    MyHomePage(),
-    MyHomePage(),
-    MyHomePage(),
+    TestScreen(),
+    Pharmacy(isSelected1: [], isSelected2: [], isSelected3: [],),
+    MyPage(),
   ];
 
   void _onItemTapped(int index) {

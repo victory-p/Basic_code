@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/widget/test.dart';
+import 'package:hellonong/widget/appbar.dart';
 
 import 'bag.dart';
 import 'home.dart';
@@ -26,6 +27,15 @@ class _PharmacyNextState extends State<PharmacyNext> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+
     // Get the selected values from the widget
     bool isBeforeBreakfast = widget.isSelected1.isNotEmpty ? widget.isSelected1[0] : false;
     bool isAfterBreakfast = widget.isSelected1.length > 1 ? widget.isSelected1[1] : false;
@@ -35,105 +45,70 @@ class _PharmacyNextState extends State<PharmacyNext> {
     bool isAfterDinner = widget.isSelected3.length > 1 ? widget.isSelected3[1] : false;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()),
-              );
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Column(
         children: [
-          SizedBox(height: 75),
+          SizedBox(height: screenHeight * 0.075),
           Row(
             children: [
               // 첫 번째 이미지와 밥 전/후 이미지를 나란히 표시
               Image.asset(
+                width: screenWidth * 0.28,
+                height: screenHeight * 0.2,
                 "assets/images/morning.png",
-                width: 100,
-                height: 100,
               ),
               SizedBox(width: 35),
               Image.asset(
                 isBeforeBreakfast ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
-                width: 100,
-                height: 100,
+                width: screenWidth * 0.3,
+                height: screenHeight * 0.2,
               ),
-              SizedBox(width: 25),
               Image.asset(
                 "assets/images/30mintues.png",
-                width: 120,
-                height: 80,
+                width: screenWidth * 0.33,
+                height: screenHeight * 0.2,
               ),
             ],
           ),
-          SizedBox(height: 40),
           Row(
             children: [
               // 두 번째 이미지와 밥 전/후 이미지를 나란히 표시
               Image.asset(
                 "assets/images/afternoon.png",
-                width: 100,
-                height: 100,
+                width: screenWidth * 0.28,
+                height: screenHeight * 0.2,
               ),
               SizedBox(width: 35),
               Image.asset(
                 isBeforeLunch ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
-                width: 100,
-                height: 100,
+                width: screenWidth * 0.3,
+                height: screenHeight * 0.2,
               ),
-              SizedBox(width: 25),
               Image.asset(
                 "assets/images/30mintues.png",
-                width: 120,
-                height: 80,
+                width: screenWidth * 0.33,
+                height: screenHeight * 0.2,
               ),
             ],
           ),
-          SizedBox(height: 40),
           Row(
             children: [
               // 세 번째 이미지와 밥 전/후 이미지를 나란히 표시
               Image.asset(
                 "assets/images/evening.png",
-                width: 100,
-                height: 100,
+                width: screenWidth * 0.28,
+                height: screenHeight * 0.2,
               ),
               SizedBox(width: 35),
               Image.asset(
                 isBeforeDinner ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
-                width: 100,
-                height: 100,
+                width: screenWidth * 0.3,
+                height: screenHeight * 0.2,
               ),
-              SizedBox(width: 25),
               Image.asset(
                 "assets/images/30mintues.png",
-                width: 120,
-                height: 80,
+                width: screenWidth * 0.33,
+                height: screenHeight * 0.2,
               ),
             ],
           ),

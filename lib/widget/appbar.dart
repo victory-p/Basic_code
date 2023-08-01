@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../bag.dart';
 import '../home.dart';
 import '../mypage.dart';
+import '../usage.dart';
 
 class CustomAppBar extends AppBar {
+  final int _buttonIndex;
   final int selectedIndex;
   final BuildContext context; // context를 멤버 변수로 추가합니다.
 
-  CustomAppBar(this.selectedIndex, this.context) // 생성자에서 context를 전달받도록 수정합니다.
+  CustomAppBar(this._buttonIndex, this.selectedIndex, this.context)
       : super(
     leading: IconButton(
       onPressed: () {
@@ -40,15 +41,24 @@ class CustomAppBar extends AppBar {
       ),
       IconButton(
         onPressed: () {
-          // Navigate to the MyPage when the second icon button is pressed.
+          // Navigate to the Usage or other page based on the _buttonIndex value.
           if (selectedIndex == 0) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Bag()),
+              MaterialPageRoute(builder: (context) => Usage()),
             );
+          } else {
+            // Handle other cases based on _buttonIndex value.
+            // For example, add more conditions or navigate to different pages.
           }
         },
-        icon: Icon(
+        icon: _buttonIndex == 1
+            ? Icon(
+          Icons.help,
+          size: 40,
+          color: Colors.white,
+        )
+            : Icon(
           Icons.help_outline,
           size: 40,
           color: Colors.white,
