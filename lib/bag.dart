@@ -46,8 +46,8 @@ class _BagState extends State<Bag> {
                   padding: EdgeInsets.only(top: 0), // 이미지 위에 20픽셀의 여백 추가
                   child: Image.asset(
                     "assets/images/bag.png",
-                    width: screenWidth * 0.2,
-                    height: screenHeight * 0.13,
+                    width: screenWidth * 0.12,
+                    height: screenHeight * 0.095,
                   ),
                 ),
                 Positioned(
