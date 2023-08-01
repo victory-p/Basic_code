@@ -1,10 +1,39 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'widget/appbar.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Symptoms Category',
+      home: SymptomsCategory(),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final int a;
+  final int b;
+  final BuildContext context;
+
+  CustomAppBar(this.a, this.b, this.context);
+
+  @override
+  Size get preferredSize => Size.fromHeight(50.0);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text('Custom App Bar'),
+    );
+  }
+}
 
 class SymptomsCategory extends StatefulWidget {
-  const SymptomsCategory({super.key});
+  const SymptomsCategory({Key? key}) : super(key: key);
 
   @override
   State<SymptomsCategory> createState() => _SymptomsCategoryState();
@@ -37,7 +66,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(0, 0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -74,33 +103,36 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                     ],
                   );
                 } else {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      child: Text(
-                        '$index',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                  return GestureDetector(
+                    onTap: () => _onListItemClicked(index), // 리스트 아이템 클릭 이벤트 처리
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        child: Text(
+                          '$index',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${items[index].split('\n')[0]}',
-                          style: TextStyle(
-                            fontSize: 16,
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${items[index].split('\n')[0]}',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
-                        Text(
-                          '${items[index].split('\n')[1]}',
-                          style: TextStyle(
-                            fontSize: 14,
+                          Text(
+                            '${items[index].split('\n')[1]}',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 }
@@ -108,6 +140,42 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  // 리스트 아이템 클릭 이벤트 처리
+  void _onListItemClicked(int index) {
+    // list 위젯으로 인덱스 값을 넘깁니다.
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => list(index: index),
+      ),
+    );
+  }
+}
+
+class list extends StatefulWidget {
+  final int index; // 클릭한 리스트 아이템의 인덱스 값
+
+  const list({Key? key, required this.index}) : super(key: key);
+
+  @override
+  State<list> createState() => _listState();
+}
+
+class _listState extends State<list> {
+  @override
+  Widget build(BuildContext context) {
+    // 클릭한 리스트 아이템의 인덱스 값을 이용하여 원하는 데이터를 불러오거나 특정 동작을 수행할 수 있습니다.
+    // 예시로 클릭한 인덱스 값을 화면에 표시하는 코드를 작성했습니다.
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('List Item Details'),
+      ),
+      body: Center(
+        child: Text('Clicked Index: ${widget.index}'),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 import 'package:hellonong/widget/appbar.dart';
 
@@ -119,7 +120,7 @@ class _PharmacyNextState extends State<PharmacyNext> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MyHomePage(), // Replace HomeScreen with the appropriate widget from home.dart
+              builder: (context) => BottomNavi(), // Replace HomeScreen with the appropriate widget from home.dart
             ),
           );
         },
