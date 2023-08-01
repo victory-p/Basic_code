@@ -17,9 +17,19 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+
     return Scaffold(
       appBar: CustomAppBar(0,0, context),
       body: Center(
@@ -28,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               SizedBox(
-                height: 50,
+                  height: screenHeight * 0.03,
               ),
               GestureDetector(
                 onTap: () {
@@ -38,8 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Container(
-                  height: 192,
-                  width: 229,
+                  width: screenWidth * 0.6,
+                  height: screenHeight * 0.28,
                   child: Image.asset(
                     "assets/images/Frame 2608516.png",
                     width: 72,
@@ -76,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Container(
-                  height: 192,
-                  width: 229,
+                  width: screenWidth * 0.6,
+                  height: screenHeight * 0.28,
                   child: Image.asset(
                     "assets/images/Pharmacy.png",
                     width: 100,
