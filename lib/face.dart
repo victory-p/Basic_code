@@ -6,6 +6,7 @@ import 'package:hellonong/widget/test.dart';
 import 'main.dart';
 import 'mypage.dart';
 import 'bag.dart';
+import 'home.dart';
 
 class  Face extends StatefulWidget {
   const Face ({super.key});
@@ -63,6 +64,13 @@ class _FaceState extends State<Face> {
                 Positioned(//머리
                   bottom: screenHeight*0.4, // 아래 컨테이너 위에 20의 공간 추가
                   left: screenWidth*0.01, // 왼쪽 컨테이너 위치 설정
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      );
+                    },
                   child: Container(
                     width: screenWidth*0.7,
                     height: screenHeight*0.18,
@@ -73,9 +81,17 @@ class _FaceState extends State<Face> {
                     ),
                   ),
                 ),
+                ),
                     Positioned(//눈
                       bottom: screenHeight*0.295, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.073, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.585,
                         height: screenHeight*0.09,
@@ -85,10 +101,18 @@ class _FaceState extends State<Face> {
                           border: Border.all(color: Color.fromRGBO(102, 102, 102, 1.0), width: 1.0), // 보더 색상 설정
                         ),
                       ),
+                      ),
                     ),
                     Positioned(//코
                       bottom: screenHeight*0.2, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.291, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.145,
                         height: screenHeight*0.08,
@@ -99,9 +123,17 @@ class _FaceState extends State<Face> {
                         ),
                       ),
                     ),
+                    ),
                     Positioned(//왼쪽 귀
                       bottom: screenHeight*0.25, // 아래 컨테이너 위에 20의 공간 추가
                       left: 0, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.07,
                         height: screenHeight*0.12,
@@ -111,10 +143,18 @@ class _FaceState extends State<Face> {
                           border: Border.all(color: Color.fromRGBO(102, 102, 102, 1.0), width: 1.0), // 보더 색상 설정
                         ),
                       ),
+                    ),
                     ),
                     Positioned(//오른쪽 귀
                       bottom: screenHeight*0.25, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.66, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.07,
                         height: screenHeight*0.12,
@@ -125,9 +165,17 @@ class _FaceState extends State<Face> {
                         ),
                       ),
                     ),
+                    ),
                     Positioned(//오른쪽 볼
                       bottom: screenHeight*0.2,
                       left: screenWidth*0.445, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.184,
                         height: screenHeight*0.08,
@@ -137,10 +185,18 @@ class _FaceState extends State<Face> {
                           border: Border.all(color: Color.fromRGBO(102, 102, 102, 1.0), width: 1.0), // 보더 색상 설정
                         ),
                       ),
+                    ),
                     ),
                     Positioned(//왼쪽 볼
                       bottom: screenHeight * 0.2, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.1, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.184,
                         height: screenHeight*0.08,
@@ -151,9 +207,17 @@ class _FaceState extends State<Face> {
                         ),
                       ),
                     ),
+                    ),
                     Positioned(//입술
                       bottom: screenHeight * 0.135, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.2, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.32,
                         height: screenHeight * 0.05,
@@ -164,9 +228,17 @@ class _FaceState extends State<Face> {
                         ),
                       ),
                     ),
+                    ),
                     Positioned(//턱
                       bottom: screenHeight * 0.065, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.2, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.32,
                         height: screenHeight * 0.065,
@@ -177,9 +249,17 @@ class _FaceState extends State<Face> {
                         ),
                       ),
                     ),
+                    ),
                     Positioned(//목
                       bottom: screenHeight * 0.01, // 아래 컨테이너 위에 20의 공간 추가
                       left: screenWidth*0.15, // 왼쪽 컨테이너 위치 설정
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                          );
+                        },
                       child: Container(
                         width: screenWidth*0.43,
                         height: screenHeight * 0.05,
@@ -188,6 +268,7 @@ class _FaceState extends State<Face> {
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Color.fromRGBO(102, 102, 102, 1.0), width: 1.0), // 보더 색상 설정
                         ),
+                      ),
                       ),
                     ),
                 ],

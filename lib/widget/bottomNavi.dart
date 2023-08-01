@@ -17,6 +17,7 @@ class _BottomNaviState extends State<BottomNavi> {
     MyHomePage(),
     MyHomePage(),
     MyHomePage(),
+    MyHomePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -32,15 +33,19 @@ class _BottomNaviState extends State<BottomNavi> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_hospital_outlined,size: 45,),
-            label: '',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined,size:  50,),
             label: '',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.local_hospital_outlined,size: 45,),
+            label: '',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.capsules, size: 45,),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FontAwesomeIcons.user, size: 45,),
             label: '',
           ),
         ],
