@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 
 class SymptomsCategory extends StatefulWidget {
@@ -36,37 +37,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              /*Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()), //page 간 이동
-              );*/
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              /*Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );*/
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),

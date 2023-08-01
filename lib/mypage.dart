@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/pharmacy.dart';
 import 'package:hellonong/symptoms.dart';
+import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'bag.dart';
 import 'home.dart';
@@ -34,41 +35,7 @@ class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 40,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Bag()));
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MyPage()));
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: ListView.builder(
         scrollDirection: Axis.vertical,
         itemCount: dateData.length,
