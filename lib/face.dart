@@ -9,6 +9,7 @@ import 'main.dart';
 import 'mypage.dart';
 import 'bag.dart';
 import 'home.dart';
+import 'symptoms_category.dart';
 
 class  Face extends StatefulWidget {
   const Face ({super.key});
