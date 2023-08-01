@@ -275,7 +275,7 @@ class _FaceState extends State<Face> {
               ),
             ),
     ),
-    bottomNavigationBar: test.bottmNavi(context),
+      bottomNavigationBar: BottomNavi(),
     );
   }
 }

@@ -169,8 +169,8 @@ class _legState extends State<leg> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: test.bottmNavi(context),
+      )
+
     );
   }
 }

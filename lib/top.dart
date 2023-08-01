@@ -164,7 +164,7 @@ class _TopState extends State<Top> {
           ),
         ),
 
-      bottomNavigationBar: test.bottmNavi(context),
+      bottomNavigationBar: BottomNavi(),
     );
   }
 }

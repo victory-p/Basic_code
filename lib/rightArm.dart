@@ -178,7 +178,7 @@ class _rightArmState extends State<rightArm> {
           ),
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
+
     );
   }
 }

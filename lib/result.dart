@@ -168,7 +168,7 @@ class _ResultState extends State<Result> {
           ],
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
+
     );
   }
 }

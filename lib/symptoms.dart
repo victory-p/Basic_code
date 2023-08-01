@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 import 'mypage.dart';
 import 'bag.dart';
@@ -191,7 +192,7 @@ class _SymptomsState extends State<Symptoms> {
           ),
         ],
       ),
-      bottomNavigationBar: test.bottmNavi(context),
+      bottomNavigationBar: BottomNavi(),
     );
   }
 }

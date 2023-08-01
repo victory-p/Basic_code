@@ -165,7 +165,7 @@ class _PharmacyNextState extends State<PharmacyNext> {
           ),
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
+
     );
   }
 }

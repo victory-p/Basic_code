@@ -114,7 +114,6 @@ class _BagState extends State<Bag> {
           ),
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
 
     );
   }
