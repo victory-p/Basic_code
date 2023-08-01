@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/usage.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
+import 'package:hellonong/widget/appbar.dart';
 
 import 'body.dart';
 import 'mypage.dart';
@@ -30,37 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
         .height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()),
-              );
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.fromLTRB(0, 26, 0, 0),
