@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/pharmacy_next.dart';
+import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'bag.dart';
@@ -40,36 +41,7 @@ class _PharmacyState extends State<Pharmacy> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Bag()));
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MyPage()));
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(0, 1, context),
       body: Column(
         children: [
           SizedBox(
@@ -299,7 +271,6 @@ class _PharmacyState extends State<Pharmacy> {
           ),
         ],
       ),
-      bottomNavigationBar: test.bottmNavi(context),
 
       floatingActionButton: GestureDetector(
         onTap: () {
