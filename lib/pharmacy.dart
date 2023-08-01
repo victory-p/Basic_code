@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/pharmacy_next.dart';
 import 'package:hellonong/widget/appbar.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'bag.dart';
@@ -23,20 +24,43 @@ class Pharmacy extends StatefulWidget {
 }
 
 class _PharmacyState extends State<Pharmacy> {
+  int _selectedIndex = 2; // 바텀 네비게이션 바의 인덱스를 나타내는
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   List<bool> _isSelected1 = [false, false];
   List<bool> _isSelected2 = [false, false];
   List<bool> _isSelected3 = [false, false];
   Test test = Test(1);
 
   String dropdownvalue1 = '몇분';
-  var items1 = ['몇분', '10분', '15분', '30분', '60분'];
+  var items1 = ['몇분', '10분',  '30분', '60분'];
   String dropdownvalue2 = '몇분';
-  var items2 = ['몇분', '10분', '15분', '30분', '60분'];
+  var items2 = ['몇분', '10분',  '30분', '60분'];
   String dropdownvalue3 = '몇분';
-  var items3 = ['몇분', '10분', '15분', '30분', '60분'];
+  var items3 = ['몇분', '10분',  '30분', '60분'];
 
   String dropdownvalue4 = '몇일';
-  var items4 = ['몇일','3일', '4일', '7일', '14일'];
+  var items4 = ['몇일','3일', '5일', '7일', '14일', '30일'];
 
   @override
   Widget build(BuildContext context) {
@@ -280,6 +304,11 @@ class _PharmacyState extends State<Pharmacy> {
             ),
           ),
         ],
+      ),
+
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
 
       floatingActionButton: GestureDetector(

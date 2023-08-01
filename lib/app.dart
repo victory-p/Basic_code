@@ -3,7 +3,9 @@ import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 
+import 'body.dart';
 import 'home.dart';
+import 'myPage.dart';
 import 'pharmacy.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,12 @@ class MyApp extends StatelessWidget {
         colorScheme: lightColorScheme,
         useMaterial3: true,
       ),
-      home: const BottomNavi(),
+      routes: {
+        '/': (context) => MyHomePage(),
+        '/body': (context) => TestScreen(),
+        '/pharmacy': (context) => Pharmacy(isSelected1: [], isSelected2: [], isSelected3: []),
+        '/mypage': (context) => MyPage(),
+      },
     );
   }
 }

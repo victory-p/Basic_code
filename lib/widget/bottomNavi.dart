@@ -1,64 +1,46 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hellonong/home.dart';
 
-import '../app.dart';
-import '../body.dart';
-import '../myPage.dart';
-import '../pharmacy.dart';
+class BottomNavigationWidget extends StatefulWidget {
+  final int selectedIndex;
+  final Function(int) onItemTapped;
 
-class BottomNavi extends StatefulWidget {
-  const BottomNavi({super.key});
+  const BottomNavigationWidget({
+    required this.selectedIndex,
+    required this.onItemTapped,
+  });
 
   @override
-  State<BottomNavi> createState() => _BottomNaviState();
+  State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
 }
 
-class _BottomNaviState extends State<BottomNavi> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(),
-    TestScreen(),
-    Pharmacy(isSelected1: [], isSelected2: [], isSelected3: [],),
-    MyPage(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _widgetOptions[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined,size:  50,),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_hospital_outlined,size: 45,),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.capsules, size: 45,),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.user, size: 45,),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-          unselectedItemColor: Color(0xFFBEBEBE),
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        onTap: _onItemTapped,
-      ),
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined, size: 50,),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.local_hospital_outlined, size: 45,),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(FontAwesomeIcons.capsules, size: 45,),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline, size: 45,),
+          label: '',
+        ),
+      ],
+      currentIndex: widget.selectedIndex,
+      selectedItemColor: Theme.of(context).colorScheme.primary,
+      unselectedItemColor: Colors.grey,
+      onTap: widget.onItemTapped, // 탭하면 _onItemTapped 메서드 호출
+      type: BottomNavigationBarType.fixed, // 아이콘의 위치 고정
     );
   }
 }

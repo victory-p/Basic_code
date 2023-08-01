@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:hellonong/symptom_picture.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -49,7 +49,7 @@ class _FaceState extends State<Face> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
+                        MaterialPageRoute(builder: (context) => Symptom_picture()), // Replace Page3 with the desired page
                       );
                     },
                   child: Container(
