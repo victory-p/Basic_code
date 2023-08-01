@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
+import 'package:hellonong/widget/appbar.dart';
 
 import 'main.dart';
 import 'mypage.dart';
@@ -23,29 +24,7 @@ class _BagState extends State<Bag> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-              onPressed: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
-                ));},
-              icon:Icon(
-                Icons.list_alt_rounded,
-                size: 40,
-                color: Colors.white,
-              )
-          ),
-          IconButton(
-              onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => MyPage()));},
-              icon:Icon(
-                Icons.person_outline,
-                size: 40,
-                color: Colors.white,
-              )
-          )
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20), // 위, 아래로 20픽셀의 여백 추가

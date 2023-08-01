@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hellonong/widget/bottomNavi.dart';
+import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'mypage.dart';
 import 'bag.dart';
@@ -37,47 +37,7 @@ class _SymptomsState extends State<Symptoms> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 40,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Bag()),
-              );
-            },
-            icon: Icon(
-              Icons.list_alt_rounded,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );
-            },
-            icon: Icon(
-              Icons.person_outline,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Padding(
         padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
         child: ListView.separated(
@@ -192,7 +152,6 @@ class _SymptomsState extends State<Symptoms> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavi(),
     );
   }
 }
