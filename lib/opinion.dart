@@ -46,7 +46,7 @@ class _OpinionState extends State<Opinion> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, context),
+      appBar: CustomAppBar(0, 1 ,context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
