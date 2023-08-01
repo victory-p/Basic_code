@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+#Tue Aug 01 13:19:36 KST 2023
+base.0=C\:\\Users\\qaz85\\flutter\\Basic_code\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+=======
+<<<<<<< HEAD
 #Tue Aug 01 12:04:01 KST 2023
 =======
 <<<<<<< HEAD
@@ -9,5 +13,6 @@ base.0=C\:\\Users\\qaz85\\flutter\\Basic_code\\build\\app\\intermediates\\dex\\d
 >>>>>>> c6518ad97b179bc9ea6c8415442f7492ff50e067
 base.0=/Users/jeonhyewon/AndroidStudioProjects/Basic_code/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 >>>>>>> main
+>>>>>>> upstream/main
 path.0=classes.dex
 renamed.0=classes.dex

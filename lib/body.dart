@@ -239,8 +239,6 @@ class _TestScreenState extends State<TestScreen> {
         ],
       ),
 
-    bottomNavigationBar: test.bottmNavi(context),
-
 
     );
   }
