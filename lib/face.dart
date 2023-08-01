@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -8,6 +9,7 @@ import 'main.dart';
 import 'mypage.dart';
 import 'bag.dart';
 import 'home.dart';
+import 'symptoms_category.dart';
 
 class  Face extends StatefulWidget {
   const Face ({super.key});
@@ -47,7 +49,7 @@ class _FaceState extends State<Face> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                        MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                       );
                     },
                   child: Container(
