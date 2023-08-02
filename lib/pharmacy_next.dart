@@ -166,10 +166,6 @@ class PharmacyNext extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationWidget(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
-      ),
     );
   }
 }
