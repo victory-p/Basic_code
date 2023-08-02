@@ -6,37 +6,32 @@ class ProductsRepository {
       Product(
         category: Category.head,
         id: 0,
-        name: '열 증상',
+        name: '다래끼가 났어요',
       ),
       Product(
         category: Category.head,
         id: 1,
-        name: '머리 부상\n(피/상처)',
+        name: '눈이 건조해요',
       ),
       Product(
         category: Category.head,
         id: 2,
-        name: '머리 통증',
+        name: '눈 안이 빨개요',
       ),
       Product(
         category: Category.head,
         id: 3,
-        name: '어지러움',
+        name: '시야가 흐려요',
       ),
       Product(
         category: Category.head,
         id: 4,
-        name: '황달 증상',
+        name: '눈이 부었어요',
       ),
       Product(
         category: Category.head,
         id: 5,
-        name: '머리 혹 생김',
-      ),
-      Product(
-        category: Category.head,
-        id: 6,
-        name: '머리카락 빠짐',
+        name: '눈이 간지러워요\n(알레르기)',
       ),
     ];
     if (category == Category.head) {
