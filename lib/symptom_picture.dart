@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/model/head.dart';
 import 'package:hellonong/model/head_sym.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
 
 import 'home.dart';
 
@@ -19,6 +20,30 @@ class _CardState {
 }
 
 class _Symptom_pictureState extends State<Symptom_picture> {
+  int _selectedIndex = 1; // 바텀 네비게이션 바의 인덱스를 나타냄
+
+  // 바텀 네비게이션 바를 클릭할 때 호출되는 메서드
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   List<_CardState> cardStates =
       List.generate(10, (_) => _CardState(isChecked: false));
 
@@ -108,7 +133,7 @@ class _Symptom_pictureState extends State<Symptom_picture> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, 1, context),
+      appBar: CustomAppBar(0, 0, context),
       body: GridView.count(
           crossAxisCount: 2,
           padding: const EdgeInsets.all(16.0),
@@ -136,6 +161,10 @@ class _Symptom_pictureState extends State<Symptom_picture> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

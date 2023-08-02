@@ -69,7 +69,7 @@ class _PharmacyState extends State<Pharmacy> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, 1, context),
+      appBar: CustomAppBar(0, 0, context),
       body: Column(
         children: [
           SizedBox(

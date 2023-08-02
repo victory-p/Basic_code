@@ -7,15 +7,14 @@ import 'home.dart';
 import 'mypage.dart';
 import 'widget/bottomNavi.dart';
 
-class PharmacyNext extends StatelessWidget {
+class PharmacyNext extends StatefulWidget {
   final List<bool> isSelected1;
   final List<bool> isSelected2;
   final List<bool> isSelected3;
   final String selectedDuration;
-  final String selectedImage1; // New property to store the selected image
+  final String selectedImage1; // 새로운 속성으로 선택된 이미지 저장
   final String selectedImage2;
   final String selectedImage3;
-
 
   PharmacyNext({
     required this.isSelected1,
@@ -29,21 +28,47 @@ class PharmacyNext extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _PharmacyNextState createState() => _PharmacyNextState();
+}
+
+class _PharmacyNextState extends State<PharmacyNext> {
+  int _selectedIndex = 2; // 바텀 네비게이션 바의 인덱스를 나타냄
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    bool isBeforeBreakfast = isSelected1.isNotEmpty ? isSelected1[0] : false;
-    bool isAfterBreakfast = isSelected1.length > 1 ? isSelected1[1] : false;
-    bool isBeforeLunch = isSelected2.isNotEmpty ? isSelected2[0] : false;
-    bool isAfterLunch = isSelected2.length > 1 ? isSelected2[1] : false;
-    bool isBeforeDinner = isSelected3.isNotEmpty ? isSelected3[0] : false;
-    bool isAfterDinner = isSelected3.length > 1 ? isSelected3[1] : false;
+    bool isBeforeBreakfast = widget.isSelected1.isNotEmpty ? widget.isSelected1[0] : false;
+    bool isAfterBreakfast = widget.isSelected1.length > 1 ? widget.isSelected1[1] : false;
+    bool isBeforeLunch = widget.isSelected2.isNotEmpty ? widget.isSelected2[0] : false;
+    bool isAfterLunch = widget.isSelected2.length > 1 ? widget.isSelected2[1] : false;
+    bool isBeforeDinner = widget.isSelected3.isNotEmpty ? widget.isSelected3[0] : false;
+    bool isAfterDinner = widget.isSelected3.length > 1 ? widget.isSelected3[1] : false;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Pharmacy Next'),
-      ),
+      appBar: CustomAppBar(0, 0, context),
       body: Column(
         children: [
           SizedBox(height: screenHeight * 0.02),
@@ -63,7 +88,7 @@ class PharmacyNext extends StatelessWidget {
                   height: screenHeight * 0.2,
                 ),
                 Image.asset(
-                  selectedImage1, // Use the selected image for dropdownvalue1
+                  widget.selectedImage1, // Use the selected image for dropdownvalue1
                   width: screenWidth * 0.33,
                   height: screenHeight * 0.2,
                 ),
@@ -86,7 +111,7 @@ class PharmacyNext extends StatelessWidget {
                   height: screenHeight * 0.2,
                 ),
                 Image.asset(
-                  selectedImage2, // Use the selected image for dropdownvalue1
+                  widget.selectedImage2, // Use the selected image for dropdownvalue1
                   width: screenWidth * 0.33,
                   height: screenHeight * 0.2,
                 ),
@@ -109,7 +134,7 @@ class PharmacyNext extends StatelessWidget {
                   height: screenHeight * 0.2,
                 ),
                 Image.asset(
-                  selectedImage3, // Use the selected image for dropdownvalue1
+                  widget.selectedImage3, // Use the selected image for dropdownvalue1
                   width: screenWidth * 0.33,
                   height: screenHeight * 0.2,
                 ),
@@ -139,7 +164,7 @@ class PharmacyNext extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
-                '$selectedDuration', // Display the selected duration
+                '${widget.selectedDuration}', // Display the selected duration
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -151,7 +176,12 @@ class PharmacyNext extends StatelessWidget {
       ),
       floatingActionButton: GestureDetector(
         onTap: () {
-          Navigator.pop(context); // Go back to the previous screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyHomePage(),
+            ),
+          );
         },
         child: Container(
           width: 100,
@@ -165,6 +195,10 @@ class PharmacyNext extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }
