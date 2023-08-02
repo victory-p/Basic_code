@@ -24,6 +24,30 @@ class Pharmacy extends StatefulWidget {
 }
 
 class _PharmacyState extends State<Pharmacy> {
+  int _selectedIndex = 2; // 바텀 네비게이션 바의 인덱스를 나타내는
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
+
   List<bool> _isSelected1 = [false, false];
   List<bool> _isSelected2 = [false, false];
   List<bool> _isSelected3 = [false, false];
