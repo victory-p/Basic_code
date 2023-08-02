@@ -24,29 +24,6 @@ class Pharmacy extends StatefulWidget {
 }
 
 class _PharmacyState extends State<Pharmacy> {
-  int _selectedIndex = 2; // 바텀 네비게이션 바의 인덱스를 나타내는
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, '/');
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/body');
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/pharmacy');
-        break;
-      case 3:
-        Navigator.pushNamed(context, '/mypage');
-        break;
-    }
-  }
-
   List<bool> _isSelected1 = [false, false];
   List<bool> _isSelected2 = [false, false];
   List<bool> _isSelected3 = [false, false];
@@ -64,15 +41,8 @@ class _PharmacyState extends State<Pharmacy> {
 
   @override
   Widget build(BuildContext context) {
-
-    final screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: CustomAppBar(0, 1, context),
@@ -106,10 +76,7 @@ class _PharmacyState extends State<Pharmacy> {
                   ],
                   isSelected: _isSelected1,
                   selectedColor: Colors.white,
-                  fillColor: Theme
-                      .of(context)
-                      .colorScheme
-                      .primaryContainer,
+                  fillColor: Theme.of(context).colorScheme.primaryContainer,
                   onPressed: (int index) {
                     setState(() {
                       _isSelected1[index] = !_isSelected1[index];
@@ -141,7 +108,6 @@ class _PharmacyState extends State<Pharmacy> {
                   ),
                 ),
               ),
-             // SizedBox(width: screenWidth * 0.03),
             ],
           ),
           Padding(
@@ -169,10 +135,7 @@ class _PharmacyState extends State<Pharmacy> {
                   ],
                   isSelected: _isSelected2,
                   selectedColor: Colors.black,
-                  fillColor: Theme
-                      .of(context)
-                      .colorScheme
-                      .primaryContainer,
+                  fillColor: Theme.of(context).colorScheme.primaryContainer,
                   onPressed: (int index) {
                     setState(() {
                       _isSelected2[index] = !_isSelected2[index];
@@ -205,7 +168,6 @@ class _PharmacyState extends State<Pharmacy> {
                   ),
                 ),
               ),
-
             ],
           ),
           Padding(
@@ -233,10 +195,7 @@ class _PharmacyState extends State<Pharmacy> {
                   ],
                   isSelected: _isSelected3,
                   selectedColor: Colors.black,
-                  fillColor: Theme
-                      .of(context)
-                      .colorScheme
-                      .primaryContainer,
+                  fillColor: Theme.of(context).colorScheme.primaryContainer,
                   onPressed: (int index) {
                     setState(() {
                       _isSelected3[index] = !_isSelected3[index];
@@ -272,7 +231,7 @@ class _PharmacyState extends State<Pharmacy> {
             ],
           ),
           SizedBox(
-              height: screenHeight * 0.05,
+            height: screenHeight * 0.05,
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
@@ -305,12 +264,10 @@ class _PharmacyState extends State<Pharmacy> {
           ),
         ],
       ),
-
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
-
       floatingActionButton: GestureDetector(
         onTap: () {
           _showDialog(); // 이미지를 탭하면 다이얼로그 표시
@@ -330,7 +287,6 @@ class _PharmacyState extends State<Pharmacy> {
       ),
     );
   }
-
   void _showDialog() {
     showDialog(
       context: context,
@@ -370,6 +326,11 @@ class _PharmacyState extends State<Pharmacy> {
                       isSelected1: _isSelected1,
                       isSelected2: _isSelected2,
                       isSelected3: _isSelected3,
+                      selectedDuration: dropdownvalue4, // Pass the selected duration to PharmacyNext
+                      selectedImage1: _getImageForDropdownValue(dropdownvalue1),
+                      selectedImage2: _getImageForDropdownValue(dropdownvalue2),
+                      selectedImage3: _getImageForDropdownValue(dropdownvalue3),// Pass the selected image for dropdownvalue
+
                     ),
                   ),
                 );
@@ -379,5 +340,21 @@ class _PharmacyState extends State<Pharmacy> {
         );
       },
     );
+  }
+
+  // Method to get the image asset path based on the selected dropdown value
+  String _getImageForDropdownValue(String dropdownValue) {
+    switch (dropdownValue) {
+      case '몇분':
+        return 'assets/images/default.png';
+      case '10분':
+        return 'assets/images/10minutes.png';
+      case '30분':
+        return 'assets/images/30mintues.png';
+      case '60분':
+        return 'assets/images/1hour.png';
+      default:
+        return 'assets/images/default.png';
+    }
   }
 }
