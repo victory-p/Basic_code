@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../bag.dart';
-import '../home.dart';
-import '../mypage.dart';
 import '../usage.dart';
 
 class CustomAppBar extends AppBar {
@@ -23,7 +20,7 @@ class CustomAppBar extends AppBar {
         color: Colors.white,
       ),
     ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+    backgroundColor: Theme.of(context).colorScheme.primary,
     actions: [
       IconButton(
         onPressed: () {
@@ -47,8 +44,8 @@ class CustomAppBar extends AppBar {
                 top: 0, // 동그라미의 위치를 조정하여 겹치도록 설정
                 right: 0, // 동그라미의 위치를 조정하여 겹치도록 설정
                 child: Container(
-                  width: 24, // 동그라미의 너비와 높이 설정 (원하는 크기로 조정)
-                  height: 24,
+                  width: 20, // 동그라미의 너비와 높이 설정 (원하는 크기로 조정)
+                  height: 20,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFB41212), // 진한 빨간색
@@ -58,7 +55,7 @@ class CustomAppBar extends AppBar {
                       '0', // 동그라미 안에 들어갈 내용 (원하는 텍스트로 변경 가능)
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 14, // 텍스트 크기 조정
                         fontWeight: FontWeight.bold,
                       ),
                     ),

@@ -5,6 +5,7 @@ import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'bag.dart';
 import 'home.dart';
+import 'widget/bottomNavi.dart';
 
 class ListItemData {
   bool isSwitched;
@@ -26,6 +27,29 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyPageState extends State<MyPage> {
+  int _selectedIndex = 3;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   List<ListItemData> dateData = [
     ListItemData(isSwitched: false, color: Colors.white, date: "2023.07.13(목)"),
     ListItemData(isSwitched: false, color: Colors.white, date: "2023.07.12(수)"),
@@ -158,6 +182,10 @@ class _MyPageState extends State<MyPage> {
             ],
           );
         },
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

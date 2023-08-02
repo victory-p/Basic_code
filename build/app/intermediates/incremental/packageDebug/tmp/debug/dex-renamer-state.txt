@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Tue Aug 01 16:40:18 KST 2023
-base.0=/Users/jeonhyewon/AndroidStudioProjects/Basic_code/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-=======
-#Tue Aug 01 15:18:05 KST 2023
+#Wed Aug 02 15:00:07 KST 2023
 base.0=/Users/parkseungri/AndroidStudioProjects/Basic_code/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
->>>>>>> 7ffc4ffcfb18c9c8bae5c7683d4540d9233097b2
 path.0=classes.dex
 renamed.0=classes.dex

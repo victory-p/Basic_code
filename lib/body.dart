@@ -12,6 +12,7 @@ import 'rightArm.dart';
 import 'top.dart';
 import 'bottom.dart';
 import 'leg.dart';
+import 'widget/bottomNavi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +40,29 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   Test test = Test(1);
   @override
   Widget build(BuildContext context) {
@@ -209,8 +233,10 @@ class _TestScreenState extends State<TestScreen> {
           ],
         ),
       ),
-
-
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
+      ),
     );
   }
 }
