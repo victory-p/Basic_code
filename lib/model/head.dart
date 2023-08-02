@@ -1,22 +1,25 @@
 enum Category {
-  all,
-  accessories,
-  clothing,
-  home,
+  head,
+  chest,
+  leftarm,
+  rightarm,
+  thigh,
+  leg,
 }
 
 class Product {
   const Product({
-    required this.sym,
-    required this.sympicture,
+    required this.category,
+    required this.id,
+    required this.name,
   });
 
   final Category category;
-  final bool sympicture;
-  final String sym;
+  final int id;
+  final String name;
 
-  String get assetName => '$id-0.jpg'; //
-  String get assetPackage => 'shrine_images';
+  String get assetName => '$id.png';
+  //String get assetPackage => 'assets/images/sym';
 
   @override
   String toString() => "$name (id=$id)";

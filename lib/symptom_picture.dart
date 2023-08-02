@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/widget/appbar.dart';
+import 'package:hellonong/model/head.dart';
+import 'package:hellonong/model/head_sym.dart';
+
+import 'home.dart';
 
 class Symptom_picture extends StatefulWidget {
   const Symptom_picture({Key? key});
@@ -15,57 +19,87 @@ class _CardState {
 }
 
 class _Symptom_pictureState extends State<Symptom_picture> {
-  List<_CardState> cardStates = List.generate(10, (_) => _CardState(isChecked: false));
+  List<_CardState> cardStates =
+      List.generate(10, (_) => _CardState(isChecked: false));
 
-  List<Card> _buildGridCards(int count) {
-    List<Card> cards = List.generate(
-      count,
-          (int index) {
-        return Card(
-          color: Colors.white, // 네모의 배경색을 흰색으로 설정
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            side: BorderSide(color: Colors.black, width: 1.0), // 테두리의 색상과 두께 설정
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Title',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+  List<Card> _buildGridCards(BuildContext context) {
+    List<Product> products = ProductsRepository.loadProducts(Category.head);
+
+    if (products.isEmpty) {
+      return const <Card>[];
+    }
+
+    final ThemeData theme = Theme.of(context);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return products.map((product) {
+      return Card(
+        color: Colors.white, // 카드 배경색을 흰색으로 설정
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: BorderSide(color: Colors.black, width: 1.2), // 테두리의 색상과 두께 설정
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Stack(
+          // Stack을 사용하여 체크박스와 이미지 겹치기
+          children: <Widget>[
+            Positioned.fill(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(15.0, 5.0, 5.0, 5.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            product.name,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
+                          ),
+                          const SizedBox(height: 8.0),
+                        ],
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          cardStates[index].isChecked = !cardStates[index].isChecked;
-                        });
-                      },
-                      icon: cardStates[index].isChecked
-                          ? Icon(Icons.check_box)
-                          : Icon(Icons.check_box_outline_blank),
+                  ),
+                  AspectRatio(
+                    aspectRatio: 18 / 15,
+                    child: Image.asset(
+                      //fit: BoxFit.fitWidth,
+                      'assets/images/sym/head/${product.id}.png', // 이미지 가져오기
                     ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 4.0,
+              right: 4.0,
+              child: Container(
+                width: 40,
+                height: 40,
+                child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      cardStates[product.id].isChecked =
+                          !cardStates[product.id].isChecked;
+                    });
+                  },
+                  icon: cardStates[product.id].isChecked
+                      ? Icon(Icons.check_box)
+                      : Icon(Icons.check_box_outline_blank),
                 ),
               ),
-              AspectRatio(
-                aspectRatio: 18.0 / 12.0,
-                child: Image.asset('assets/diamond.png'),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-    return cards;
+            ),
+          ],
+        ),
+      );
+    }).toList();
   }
 
   @override
@@ -76,10 +110,32 @@ class _Symptom_pictureState extends State<Symptom_picture> {
     return Scaffold(
       appBar: CustomAppBar(0, 1, context),
       body: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(16.0),
-        childAspectRatio: 7.0 / 8.0, // 이 부분을 조정하여 오버플로우 제거
-        children: _buildGridCards(10),
+          crossAxisCount: 2,
+          padding: const EdgeInsets.all(16.0),
+          childAspectRatio: screenWidth / (screenHeight * 0.531),
+          children: _buildGridCards(context) // Changed code
+          ),
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyHomePage(),
+            ),
+          );
+        },
+        child: Container(
+          width: 100,
+          height: 50,
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(10.0),
+            image: DecorationImage(
+              image: AssetImage('assets/images/checkbox.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -20,6 +20,29 @@ class  Face extends StatefulWidget {
 }
 
 class _FaceState extends State<Face> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   Test test = Test(1);
   @override
   Widget build(BuildContext context) {
@@ -256,7 +279,10 @@ class _FaceState extends State<Face> {
               ),
             ),
     ),
-    bottomNavigationBar: test.bottmNavi(context),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
+      ),
     );
   }
 }

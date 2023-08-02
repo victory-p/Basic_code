@@ -83,6 +83,13 @@ flutter:
     - assets/images/beforerice.png
     - assets/images/30mintues.png
     - assets/images/list.png
+    - assets/images/sym/head/0.png
+    - assets/images/sym/head/1.png
+    - assets/images/sym/head/2.png
+    - assets/images/sym/head/3.png
+    - assets/images/sym/head/4.png
+    - assets/images/sym/head/5.png
+    - assets/images/sym/head/6.png
 
 
   # To add assets to your application, add an assets section, like this:
