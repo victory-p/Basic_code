@@ -7,145 +7,151 @@ import 'home.dart';
 import 'mypage.dart';
 import 'widget/bottomNavi.dart';
 
-class PharmacyNext extends StatefulWidget {
+class PharmacyNext extends StatelessWidget {
   final List<bool> isSelected1;
   final List<bool> isSelected2;
   final List<bool> isSelected3;
+  final String selectedDuration;
+  final String selectedImage1; // New property to store the selected image
+  final String selectedImage2;
+  final String selectedImage3;
 
-  const PharmacyNext({
+
+  PharmacyNext({
     required this.isSelected1,
     required this.isSelected2,
     required this.isSelected3,
+    required this.selectedDuration,
+    required this.selectedImage1,
+    required this.selectedImage2,
+    required this.selectedImage3,
     Key? key,
   }) : super(key: key);
 
   @override
-  State<PharmacyNext> createState() => _PharmacyNextState();
-}
-
-class _PharmacyNextState extends State<PharmacyNext> {
-  int _selectedIndex = 2;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, '/');
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/body');
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/pharmacy');
-        break;
-      case 3:
-        Navigator.pushNamed(context, '/mypage');
-        break;
-    }
-  }
-
-  Test test = Test(1);
-
-  @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-    final screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
-    // Get the selected values from the widget
-    bool isBeforeBreakfast = widget.isSelected1.isNotEmpty ? widget.isSelected1[0] : false;
-    bool isAfterBreakfast = widget.isSelected1.length > 1 ? widget.isSelected1[1] : false;
-    bool isBeforeLunch = widget.isSelected2.isNotEmpty ? widget.isSelected2[0] : false;
-    bool isAfterLunch = widget.isSelected2.length > 1 ? widget.isSelected2[1] : false;
-    bool isBeforeDinner = widget.isSelected3.isNotEmpty ? widget.isSelected3[0] : false;
-    bool isAfterDinner = widget.isSelected3.length > 1 ? widget.isSelected3[1] : false;
+    bool isBeforeBreakfast = isSelected1.isNotEmpty ? isSelected1[0] : false;
+    bool isAfterBreakfast = isSelected1.length > 1 ? isSelected1[1] : false;
+    bool isBeforeLunch = isSelected2.isNotEmpty ? isSelected2[0] : false;
+    bool isAfterLunch = isSelected2.length > 1 ? isSelected2[1] : false;
+    bool isBeforeDinner = isSelected3.isNotEmpty ? isSelected3[0] : false;
+    bool isAfterDinner = isSelected3.length > 1 ? isSelected3[1] : false;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: AppBar(
+        title: Text('Pharmacy Next'),
+      ),
       body: Column(
         children: [
-          SizedBox(height: screenHeight * 0.075),
-          Row(
-            children: [
-              // 첫 번째 이미지와 밥 전/후 이미지를 나란히 표시
-              Image.asset(
-                width: screenWidth * 0.28,
-                height: screenHeight * 0.2,
-                "assets/images/morning.png",
-              ),
-              SizedBox(width: 35),
-              Image.asset(
-                isBeforeBreakfast ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
-                width: screenWidth * 0.3,
-                height: screenHeight * 0.2,
-              ),
-              Image.asset(
-                "assets/images/30mintues.png",
-                width: screenWidth * 0.33,
-                height: screenHeight * 0.2,
-              ),
-            ],
+          SizedBox(height: screenHeight * 0.02),
+          Padding(
+            padding: EdgeInsets.only(bottom: 0),
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/morning.png',
+                  width: screenWidth * 0.28,
+                  height: screenHeight * 0.2,
+                ),
+                SizedBox(width: 35),
+                Image.asset(
+                  isBeforeBreakfast ? 'assets/images/beforerice.png' : 'assets/images/afterrice.png',
+                  width: screenWidth * 0.3,
+                  height: screenHeight * 0.2,
+                ),
+                Image.asset(
+                  selectedImage1, // Use the selected image for dropdownvalue1
+                  width: screenWidth * 0.33,
+                  height: screenHeight * 0.2,
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              // 두 번째 이미지와 밥 전/후 이미지를 나란히 표시
-              Image.asset(
-                "assets/images/afternoon.png",
-                width: screenWidth * 0.28,
-                height: screenHeight * 0.2,
-              ),
-              SizedBox(width: 35),
-              Image.asset(
-                isBeforeLunch ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
-                width: screenWidth * 0.3,
-                height: screenHeight * 0.2,
-              ),
-              Image.asset(
-                "assets/images/30mintues.png",
-                width: screenWidth * 0.33,
-                height: screenHeight * 0.2,
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.only(bottom: 0),
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/afternoon.png',
+                  width: screenWidth * 0.28,
+                  height: screenHeight * 0.2,
+                ),
+                SizedBox(width: 35),
+                Image.asset(
+                  isBeforeLunch ? 'assets/images/beforerice.png' : 'assets/images/afterrice.png',
+                  width: screenWidth * 0.3,
+                  height: screenHeight * 0.2,
+                ),
+                Image.asset(
+                  selectedImage2, // Use the selected image for dropdownvalue1
+                  width: screenWidth * 0.33,
+                  height: screenHeight * 0.2,
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              // 세 번째 이미지와 밥 전/후 이미지를 나란히 표시
-              Image.asset(
-                "assets/images/evening.png",
-                width: screenWidth * 0.28,
-                height: screenHeight * 0.2,
+          Padding(
+            padding: EdgeInsets.only(bottom: 0),
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/evening.png',
+                  width: screenWidth * 0.28,
+                  height: screenHeight * 0.2,
+                ),
+                SizedBox(width: 35),
+                Image.asset(
+                  isBeforeDinner ? 'assets/images/beforerice.png' : 'assets/images/afterrice.png',
+                  width: screenWidth * 0.3,
+                  height: screenHeight * 0.2,
+                ),
+                Image.asset(
+                  selectedImage3, // Use the selected image for dropdownvalue1
+                  width: screenWidth * 0.33,
+                  height: screenHeight * 0.2,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 0),
+          Container(
+            alignment: Alignment.center,
+            width: screenWidth * 0.4,
+            height: screenHeight * 0.075,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
               ),
-              SizedBox(width: 35),
-              Image.asset(
-                isBeforeDinner ? "assets/images/beforerice.png" : "assets/images/afterrice.png",
-                width: screenWidth * 0.3,
-                height: screenHeight * 0.2,
+              child: Text(
+                '$selectedDuration', // Display the selected duration
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              Image.asset(
-                "assets/images/30mintues.png",
-                width: screenWidth * 0.33,
-                height: screenHeight * 0.2,
-              ),
-            ],
+            ),
           ),
         ],
       ),
       floatingActionButton: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MyHomePage(), // Replace HomeScreen with the appropriate widget from home.dart
-            ),
-          );
+          Navigator.pop(context); // Go back to the previous screen
         },
         child: Container(
           width: 100,
@@ -159,10 +165,6 @@ class _PharmacyNextState extends State<PharmacyNext> {
             ),
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationWidget(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
       ),
     );
   }
