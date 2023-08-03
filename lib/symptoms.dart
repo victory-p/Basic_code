@@ -4,6 +4,7 @@ import 'package:hellonong/widget/test.dart';
 import 'mypage.dart';
 import 'bag.dart';
 import 'opinion.dart';
+import 'widget/bottomNavi.dart';
 
 class ListItemData {
   bool isSwitched;
@@ -27,6 +28,29 @@ class Symptoms extends StatefulWidget {
 }
 
 class _SymptomsState extends State<Symptoms> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   List<ListItemData> symptomsData = [
     ListItemData(isSwitched: false, color: Colors.black, body: "머리", symptom: "두통, 발열"),
     ListItemData(isSwitched: false, color: Colors.black, body: "코", symptom: "콧물"),
@@ -151,6 +175,10 @@ class _SymptomsState extends State<Symptoms> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

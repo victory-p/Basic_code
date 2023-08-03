@@ -4,6 +4,7 @@ import 'package:hellonong/widget/test.dart';
 
 import 'bag.dart';
 import 'mypage.dart';
+import 'widget/bottomNavi.dart';
 
 class Usage extends StatefulWidget {
   const Usage({Key? key}) : super(key: key);
@@ -13,6 +14,29 @@ class Usage extends StatefulWidget {
 }
 
 class _UsageState extends State<Usage> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   Test test = Test(1);
 
   @override
@@ -21,7 +45,7 @@ class _UsageState extends State<Usage> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(1,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 15),
@@ -61,6 +85,11 @@ class _UsageState extends State<Usage> {
             ),
           ),
         ),
+      ),
+
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'bag.dart';
 import 'mypage.dart';
+import 'widget/bottomNavi.dart';
 
 class ListItemData {
   bool isSwitched;
@@ -33,6 +34,29 @@ class Opinion extends StatefulWidget {
 }
 
 class _OpinionState extends State<Opinion> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   List<ListItemData> opinionData = [
     ListItemData(isSwitched: true, color: Colors.black, body: "머리", opinion: "감기"),
     ListItemData(isSwitched: true, color: Colors.black, body: "코", opinion: "비염"),
@@ -128,7 +152,10 @@ class _OpinionState extends State<Opinion> {
           ),
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
+      ),
       floatingActionButton: GestureDetector(
         onTap: () {
           _showDialog();

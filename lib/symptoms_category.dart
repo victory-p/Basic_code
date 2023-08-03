@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/widget/appbar.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
 import 'list.dart';
 
 void main() {
@@ -24,6 +25,29 @@ class SymptomsCategory extends StatefulWidget {
 }
 
 class _SymptomsCategoryState extends State<SymptomsCategory> {
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/body');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/pharmacy');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/mypage');
+        break;
+    }
+  }
+
   final List<String> items = [
     '증상에 대한 질병 명을\n카테고리 분류에 따라 선택해주세요',
     '자주 사용된 진단\n감기 / 타박상 등',
@@ -125,6 +149,10 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }
