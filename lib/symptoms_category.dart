@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/appbar.dart';
+import 'list.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,24 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Symptoms Category',
       home: SymptomsCategory(),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final int a;
-  final int b;
-  final BuildContext context;
-
-  CustomAppBar(this.a, this.b, this.context);
-
-  @override
-  Size get preferredSize => Size.fromHeight(50.0);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Text('Custom App Bar'),
     );
   }
 }
@@ -66,7 +50,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, 0, context),
+      appBar: CustomAppBar(0,0,context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -81,62 +65,63 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                 width: 1,
               ),
             ),
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Center(
-                          child: Text(
-                            '증상에 대한 질병 명을\n카테고리 분류에 따라 선택해주세요',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(
+                      child: Text(
+                        '증상에 대한 질병 명을\n카테고리 분류에 따라 선택해주세요',
+                        style: TextStyle(
+                          fontSize: 18,
                         ),
-                      ),
-                      Divider(thickness: 1, color: Colors.black38),
-                    ],
-                  );
-                } else {
-                  return GestureDetector(
-                    onTap: () => _onListItemClicked(index), // 리스트 아이템 클릭 이벤트 처리
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        child: Text(
-                          '$index',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${items[index].split('\n')[0]}',
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                          Text(
-                            '${items[index].split('\n')[1]}',
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  );
-                }
-              },
+                  ),
+                  Divider(thickness: 1, color: Colors.black38),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () => _onListItemClicked(context, index),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: Theme.of(context).colorScheme.primary,
+                            child: Text(
+                              '${index + 1}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${items[index+1].split('\n')[0]}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                '${items[index+1].split('\n')[1]}',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -144,38 +129,11 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
     );
   }
 
-  // 리스트 아이템 클릭 이벤트 처리
-  void _onListItemClicked(int index) {
-    // list 위젯으로 인덱스 값을 넘깁니다.
+  void _onListItemClicked(BuildContext context, int index) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => list(index: index),
-      ),
-    );
-  }
-}
-
-class list extends StatefulWidget {
-  final int index; // 클릭한 리스트 아이템의 인덱스 값
-
-  const list({Key? key, required this.index}) : super(key: key);
-
-  @override
-  State<list> createState() => _listState();
-}
-
-class _listState extends State<list> {
-  @override
-  Widget build(BuildContext context) {
-    // 클릭한 리스트 아이템의 인덱스 값을 이용하여 원하는 데이터를 불러오거나 특정 동작을 수행할 수 있습니다.
-    // 예시로 클릭한 인덱스 값을 화면에 표시하는 코드를 작성했습니다.
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('List Item Details'),
-      ),
-      body: Center(
-        child: Text('Clicked Index: ${widget.index}'),
+        builder: (context) => ListWidget(index: index),
       ),
     );
   }

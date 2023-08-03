@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/symptoms_category.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
@@ -89,7 +90,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -110,7 +111,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -131,7 +132,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -152,7 +153,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -173,7 +174,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -194,7 +195,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -215,7 +216,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -236,7 +237,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
@@ -257,7 +258,7 @@ class _FaceState extends State<Face> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(
