@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import 'bag.dart';
 import 'mypage.dart';
@@ -39,13 +40,16 @@ class _UsageState extends State<Usage> {
 
   Test test = Test(1);
 
+  // 유튜브 동영상의 비디오 ID
+  String videoId = 'F8cNkdi2J8M';
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(1, 0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 15),
@@ -62,6 +66,17 @@ class _UsageState extends State<Usage> {
             ),
             child: Stack(
               children: [
+                // 유튜브 플레이어
+                YoutubePlayer(
+                  controller: YoutubePlayerController(
+                    initialVideoId: videoId,
+                    flags: YoutubePlayerFlags(
+                      autoPlay: false,
+                      mute: false,
+                    ),
+                  ),
+                  showVideoProgressIndicator: true,
+                ),
                 Positioned(
                   bottom: screenHeight * 0.028,
                   right: screenWidth * 0.05,

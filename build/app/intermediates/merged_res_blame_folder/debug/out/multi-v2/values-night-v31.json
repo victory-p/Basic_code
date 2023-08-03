@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.hellonong.app-mergeDebugResources-9:/values-night-v31/values-night-v31.xml",
+            "outputFile": "com.example.hellonong.app-mergeDebugResources-26:/values-night-v31/values-night-v31.xml",
             "map": [
                 {
                     "source": "/Users/parkseungri/AndroidStudioProjects/Basic_code/android/app/src/main/res/values-night-v31/styles.xml",
