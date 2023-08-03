@@ -64,8 +64,44 @@ class _UsageState extends State<Usage> {
                 width: 1,
               ),
             ),
-            child: Stack(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        child: Text(
+                          '1', // 인덱스
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '제목',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          Text(
+                            '부제목',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
                 // 유튜브 플레이어
                 YoutubePlayer(
                   controller: YoutubePlayerController(
@@ -76,25 +112,6 @@ class _UsageState extends State<Usage> {
                     ),
                   ),
                   showVideoProgressIndicator: true,
-                ),
-                Positioned(
-                  bottom: screenHeight * 0.028,
-                  right: screenWidth * 0.05,
-                  child: Container(
-                    width: screenWidth * 0.78,
-                    height: screenHeight * 0.065,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                        size: 37,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
