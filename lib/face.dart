@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/sym_picture/picture_eye.dart';
 import 'package:hellonong/sym_picture/picture_head.dart';
 import 'package:hellonong/sym_picture/picture_nose.dart';
+import 'package:hellonong/sym_picture/picture_teeth.dart';
+import 'package:hellonong/sym_picture/picture_ear.dart';
+import 'package:hellonong/sym_picture/picture_neck.dart';
+import 'package:hellonong/sym_picture/picture_cheek.dart';
+import 'package:hellonong/sym_picture/picture_chin.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -137,7 +142,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_ear()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
@@ -158,7 +163,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_ear()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
@@ -179,7 +184,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_cheek()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
@@ -200,7 +205,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_cheek()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
@@ -221,7 +226,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_teeth()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
@@ -242,7 +247,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_chin()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
@@ -263,7 +268,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_neck()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
