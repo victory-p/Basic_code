@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/sym_picture/picture_eye.dart';
 import 'package:hellonong/sym_picture/picture_head.dart';
+import 'package:hellonong/sym_picture/picture_nose.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -115,7 +116,7 @@ class _FaceState extends State<Face> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                            MaterialPageRoute(builder: (context) => Picture_nose()), // Replace Page3 with the desired page
                           );
                         },
                       child: Container(
