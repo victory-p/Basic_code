@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
+import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 
@@ -23,29 +24,7 @@ class _rightArmState extends State<rightArm> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-              onPressed: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
-                ));},
-              icon:Icon(
-                Icons.list_alt_rounded,
-                size: 40,
-                color: Colors.white,
-              )
-          ),
-          IconButton(
-              onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => MyPage()));},
-              icon:Icon(
-                Icons.person_outline,
-                size: 40,
-                color: Colors.white,
-              )
-          )
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body:
       Align(
         alignment: Alignment.center, // 가운데 정렬
@@ -178,7 +157,7 @@ class _rightArmState extends State<rightArm> {
           ),
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
+
     );
   }
 }

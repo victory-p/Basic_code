@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
+import 'package:hellonong/widget/appbar.dart';
 
 import 'main.dart';
 import 'mypage.dart';
@@ -18,37 +19,14 @@ class _BagState extends State<Bag> {
 
   @override
   Widget build(BuildContext context) {
-
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-              onPressed: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context) => Bag() //page 간 이동
-                ));},
-              icon:Icon(
-                Icons.list_alt_rounded,
-                size: 40,
-                color: Colors.white,
-              )
-          ),
-          IconButton(
-              onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context) => MyPage()));},
-              icon:Icon(
-                Icons.person_outline,
-                size: 40,
-                color: Colors.white,
-              )
-          )
-        ],
-      ),
+      appBar: CustomAppBar(0,0, context),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 20), // 위, 아래로 20픽셀의 여백 추가
+          padding: EdgeInsets.symmetric(vertical: 20),
           child: Container(
             width: screenWidth * 0.9,
             height: screenHeight * 0.9,
@@ -64,16 +42,16 @@ class _BagState extends State<Bag> {
               alignment: Alignment.topCenter,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 0), // 이미지 위에 20픽셀의 여백 추가
+                  padding: EdgeInsets.only(top: 0),
                   child: Image.asset(
                     "assets/images/bag.png",
-                    width: screenWidth * 0.2,
-                    height: screenHeight * 0.13,
+                    width: screenWidth * 0.12,
+                    height: screenHeight * 0.095,
                   ),
                 ),
                 Positioned(
-                  bottom: screenHeight * 0.028, // 아래 컨테이너 위에 20픽셀의 여백 추가
-                  left: screenWidth * 0.05, // 왼쪽 컨테이너 위치 설정
+                  bottom: screenHeight * 0.028,
+                  left: screenWidth * 0.05,
                   child: Container(
                     width: screenWidth * 0.38,
                     height: screenHeight * 0.065,
@@ -85,14 +63,14 @@ class _BagState extends State<Bag> {
                       child: Icon(
                         Icons.add,
                         color: Colors.white,
-                        size: 37, // 아이콘 크기 조정
+                        size: 37,
                       ),
                     ),
                   ),
                 ),
                 Positioned(
-                  bottom: screenHeight * 0.028, // 아래 컨테이너 위에 20픽셀의 여백 추가
-                  right: screenWidth * 0.05, // 오른쪽 컨테이너 위치 설정
+                  bottom: screenHeight * 0.028,
+                  right: screenWidth * 0.05,
                   child: Container(
                     width: screenWidth * 0.38,
                     height: screenHeight * 0.065,
@@ -104,7 +82,7 @@ class _BagState extends State<Bag> {
                       child: Icon(
                         Icons.check,
                         color: Colors.white,
-                        size: 37, // 아이콘 크기 조정
+                        size: 37,
                       ),
                     ),
                   ),
@@ -114,8 +92,6 @@ class _BagState extends State<Bag> {
           ),
         ),
       ),
-      bottomNavigationBar: test.bottmNavi(context),
-
     );
   }
 }
