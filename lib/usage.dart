@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import 'bag.dart';
 import 'mypage.dart';
@@ -39,13 +40,16 @@ class _UsageState extends State<Usage> {
 
   Test test = Test(1);
 
+  // 유튜브 동영상의 비디오 ID
+  String videoId = 'F8cNkdi2J8M';
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(1,0, context),
+      appBar: CustomAppBar(1, 0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 15),
@@ -60,26 +64,54 @@ class _UsageState extends State<Usage> {
                 width: 1,
               ),
             ),
-            child: Stack(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Positioned(
-                  bottom: screenHeight * 0.028,
-                  right: screenWidth * 0.05,
-                  child: Container(
-                    width: screenWidth * 0.78,
-                    height: screenHeight * 0.065,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                        size: 37,
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        child: Text(
+                          '1', // 인덱스
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
+                      SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '제목',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          Text(
+                            '부제목',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                // 유튜브 플레이어
+                YoutubePlayer(
+                  controller: YoutubePlayerController(
+                    initialVideoId: videoId,
+                    flags: YoutubePlayerFlags(
+                      autoPlay: false,
+                      mute: false,
                     ),
                   ),
+                  showVideoProgressIndicator: true,
                 ),
               ],
             ),
