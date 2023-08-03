@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/sym_picture2/picture_elbow.dart';
+import 'package:hellonong/sym_picture2/picture_hand.dart';
+import 'package:hellonong/sym_picture2/picture_shoulder.dart';
+import 'package:hellonong/sym_picture2/picture_wrist.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -76,7 +80,7 @@ class _leftArmState extends State<leftArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_shoulder()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -101,7 +105,7 @@ class _leftArmState extends State<leftArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_elbow()), // Replace Page3 with the desired page
                     );
                   },
                 child: Transform.rotate(
@@ -129,7 +133,7 @@ class _leftArmState extends State<leftArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_wrist()), // Replace Page3 with the desired page
                     );
                   },
                 child: Transform.rotate(
@@ -158,7 +162,7 @@ class _leftArmState extends State<leftArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_hand()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(

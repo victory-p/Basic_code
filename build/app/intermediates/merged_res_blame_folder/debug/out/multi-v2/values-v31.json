@@ -4,7 +4,7 @@
             "outputFile": "com.example.hellonong.app-mergeDebugResources-26:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "/Users/parkseungri/AndroidStudioProjects/Basic_code/android/app/src/main/res/values-v31/styles.xml",
+                    "source": "/Users/jeonhyewon/AndroidStudioProjects/Basic_code/android/app/src/main/res/values-v31/styles.xml",
                     "from": {
                         "startLines": "3,15",
                         "startColumns": "4,4",

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/sym_picture5/picture_%20shin.dart';
+import 'package:hellonong/sym_picture5/picture_ankle.dart';
+import 'package:hellonong/sym_picture5/picture_foot.dart';
+import 'package:hellonong/sym_picture5/picture_knee.dart';
+import 'package:hellonong/sym_picture5/picture_thigh.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -70,7 +75,7 @@ class _legState extends State<leg> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                  MaterialPageRoute(builder: (context) => Picture_thigh()), // Replace Page3 with the desired page
                 );
               },
                 child: Container(
@@ -91,7 +96,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_knee()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -112,7 +117,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_shin()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -133,7 +138,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_ankle()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -154,7 +159,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_foot()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(

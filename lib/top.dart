@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/sym_picture3/picture_chest.dart';
+import 'package:hellonong/sym_picture3/picture_stomach.dart';
+import 'package:hellonong/sym_picture3/picture_waist.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -99,14 +102,14 @@ class _TopState extends State<Top> {
                 ),
               ),
               ),
-              Positioned(//머리
+              Positioned(//가슴
                 bottom: screenHeight*0.57, // 아래 컨테이너 위에 20의 공간 추가
                 left: screenWidth*0.2,
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_chest()), // Replace Page3 with the desired page
                     );
                   },// 왼쪽 컨테이너 위치 설정
                 child: Container(
@@ -120,14 +123,14 @@ class _TopState extends State<Top> {
                 ),
               ),
               ),
-              Positioned(//눈
+              Positioned(// 허리/옆구리
                 bottom: screenHeight*0.4, // 아래 컨테이너 위에 20의 공간 추가
                 left: screenWidth*0.25,
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_stomach()), // Replace Page3 with the desired page
                     );
                   },// 왼쪽 컨테이너 위치 설정
                 child: Container(
@@ -141,14 +144,14 @@ class _TopState extends State<Top> {
                 ),
               ),
               ),
-              Positioned(//코
+              Positioned(//등
                 bottom: screenHeight*0.05, // 아래 컨테이너 위에 20의 공간 추가
                 left: screenWidth*0.225, // 왼쪽 컨테이너 위치 설정
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_waist()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
