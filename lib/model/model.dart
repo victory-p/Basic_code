@@ -15,7 +15,7 @@ class Product {
   });
 
   final Category category;
-  final int id;
+  final String id;
   final String name;
 
   String get assetName => '$id.png';

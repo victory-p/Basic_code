@@ -7,7 +7,7 @@ import 'package:hellonong/widget/bottomNavi.dart';
 import '../home.dart';
 
 class Picture_head extends StatefulWidget {
-  const Picture_head({Key? key});
+  const Picture_head({Key? key}) : super(key: key);
 
   @override
   State<Picture_head> createState() => _Picture_headState();
@@ -16,8 +16,9 @@ class Picture_head extends StatefulWidget {
 class _CardState {
   bool isChecked;
 
-  _CardState({required this.isChecked});
+  _CardState({this.isChecked = false}); // isChecked를 선택적으로 받도록 변경
 }
+
 
 class _Picture_headState extends State<Picture_head> {
   int _selectedIndex = 1; // 바텀 네비게이션 바의 인덱스를 나타냄
@@ -44,8 +45,7 @@ class _Picture_headState extends State<Picture_head> {
     }
   }
 
-  List<_CardState> cardStates =
-  List.generate(10, (_) => _CardState(isChecked: false));
+  List<_CardState> cardStates = List.generate(10, (_) => _CardState());
 
   List<Widget> _buildGridCards(BuildContext context) {
     List<Product> products = ProductsRepository.loadProducts(Category.head);
@@ -54,7 +54,10 @@ class _Picture_headState extends State<Picture_head> {
       return const <Widget>[];
     }
 
-    return products.map((product) {
+    List<Product> filteredProducts = products.where((product) => product.id.startsWith('1-')).toList();
+
+    return filteredProducts.map((product) {
+      int index = int.parse(product.id.split('-')[1]); // Parse the string to get the integer index
       return Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
@@ -62,7 +65,7 @@ class _Picture_headState extends State<Picture_head> {
         ),
         clipBehavior: Clip.antiAlias,
         child: Container(
-          color: Colors.white, // 컨테이너의 배경색을 흰색으로 설정
+          color: Colors.white, // 카드 내부 컨텐츠의 배경색을 흰색으로 설정
           child: Stack(
             // Stack을 사용하여 체크박스와 이미지 겹치기
             children: <Widget>[
@@ -108,11 +111,11 @@ class _Picture_headState extends State<Picture_head> {
                   child: IconButton(
                     onPressed: () {
                       setState(() {
-                        cardStates[product.id].isChecked =
-                        !cardStates[product.id].isChecked;
+                        cardStates[index].isChecked =
+                        !cardStates[index].isChecked;
                       });
                     },
-                    icon: cardStates[product.id].isChecked
+                    icon: cardStates[index].isChecked
                         ? Icon(Icons.check_box)
                         : Icon(Icons.check_box_outline_blank),
                   ),
@@ -133,10 +136,10 @@ class _Picture_headState extends State<Picture_head> {
     return Scaffold(
       appBar: CustomAppBar(0, 0, context),
       body: GridView.count(
-          crossAxisCount: 2,
-          padding: const EdgeInsets.all(16.0),
-          childAspectRatio: screenWidth / (screenHeight * 0.531),
-          children: _buildGridCards(context) // Changed code
+        crossAxisCount: 2,
+        padding: const EdgeInsets.all(16.0),
+        childAspectRatio: screenWidth / (screenHeight * 0.531),
+        children: _buildGridCards(context),
       ),
       floatingActionButton: GestureDetector(
         onTap: () {

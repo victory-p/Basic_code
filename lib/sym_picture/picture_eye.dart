@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/model/model.dart';
-import 'package:hellonong/model/eye_sym.dart';
+import 'package:hellonong/model/head_sym.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 
 import '../home.dart';
 
 class Picture_eye extends StatefulWidget {
-  const Picture_eye({super.key});
+  const Picture_eye({Key? key}) : super(key: key);
 
   @override
   State<Picture_eye> createState() => _Picture_eyeState();
@@ -16,8 +16,9 @@ class Picture_eye extends StatefulWidget {
 class _CardState {
   bool isChecked;
 
-  _CardState({required this.isChecked});
+  _CardState({this.isChecked = false}); // isChecked를 선택적으로 받도록 변경
 }
+
 
 class _Picture_eyeState extends State<Picture_eye> {
   int _selectedIndex = 1; // 바텀 네비게이션 바의 인덱스를 나타냄
@@ -44,8 +45,7 @@ class _Picture_eyeState extends State<Picture_eye> {
     }
   }
 
-  List<_CardState> cardStates =
-  List.generate(10, (_) => _CardState(isChecked: false));
+  List<_CardState> cardStates = List.generate(10, (_) => _CardState());
 
   List<Widget> _buildGridCards(BuildContext context) {
     List<Product> products = ProductsRepository.loadProducts(Category.head);
@@ -54,7 +54,10 @@ class _Picture_eyeState extends State<Picture_eye> {
       return const <Widget>[];
     }
 
-    return products.map((product) {
+    List<Product> filteredProducts = products.where((product) => product.id.startsWith('2-')).toList();
+
+    return filteredProducts.map((product) {
+      int index = int.parse(product.id.split('-')[1]); // Parse the string to get the integer index
       return Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
@@ -108,11 +111,11 @@ class _Picture_eyeState extends State<Picture_eye> {
                   child: IconButton(
                     onPressed: () {
                       setState(() {
-                        cardStates[product.id].isChecked =
-                        !cardStates[product.id].isChecked;
+                        cardStates[index].isChecked =
+                        !cardStates[index].isChecked;
                       });
                     },
-                    icon: cardStates[product.id].isChecked
+                    icon: cardStates[index].isChecked
                         ? Icon(Icons.check_box)
                         : Icon(Icons.check_box_outline_blank),
                   ),
