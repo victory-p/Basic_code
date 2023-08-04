@@ -27,10 +27,6 @@ class _PharmacyState extends State<Pharmacy> {
   int _selectedIndex = 2; // 바텀 네비게이션 바의 인덱스를 나타내는
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');

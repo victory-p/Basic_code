@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/sym_picture4/picture_hip.dart';
+import 'package:hellonong/sym_picture4/picture_organ.dart';
+import 'package:hellonong/sym_picture4/picture_pelvis.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
@@ -21,10 +24,6 @@ class _BottomState extends State<Bottom> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -106,7 +105,7 @@ class _BottomState extends State<Bottom> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                    MaterialPageRoute(builder: (context) => Picture_pelvis()), // Replace Page3 with the desired page
                   );
                 },
               child: Container(
@@ -127,7 +126,7 @@ class _BottomState extends State<Bottom> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                    MaterialPageRoute(builder: (context) => Picture_organ()), // Replace Page3 with the desired page
                   );
                 },
               child: Container(
@@ -148,7 +147,7 @@ class _BottomState extends State<Bottom> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                    MaterialPageRoute(builder: (context) => Picture_hip()), // Replace Page3 with the desired page
                   );
                 },
               child: Container(

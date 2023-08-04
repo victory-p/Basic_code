@@ -18,10 +18,6 @@ class _UsageState extends State<Usage> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
