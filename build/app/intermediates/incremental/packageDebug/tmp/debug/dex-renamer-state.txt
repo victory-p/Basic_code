@@ -1,4 +1,4 @@
-#Thu Aug 03 16:48:24 KST 2023
+#Fri Aug 04 15:28:23 KST 2023
 base.0=/Users/parkseungri/AndroidStudioProjects/Basic_code/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
