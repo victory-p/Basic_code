@@ -80,6 +80,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_inappwebview",
+      "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_inappwebview-5.7.2+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.2",
       "packageUri": "lib/",
@@ -242,13 +248,19 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "youtube_player_flutter",
+      "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/youtube_player_flutter-8.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "hellonong",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-03T15:25:12.632848Z",
+  "generated": "2023-08-04T07:33:47.601468Z",
   "generator": "pub",
   "generatorVersion": "3.0.5"
 }

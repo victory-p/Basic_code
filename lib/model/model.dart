@@ -1,8 +1,7 @@
 enum Category {
   head,
   chest,
-  leftarm,
-  rightarm,
+  arm,
   thigh,
   leg,
 }

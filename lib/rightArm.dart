@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/sym_picture2/picture_elbow.dart';
+import 'package:hellonong/sym_picture2/picture_hand.dart';
+import 'package:hellonong/sym_picture2/picture_shoulder.dart';
+import 'package:hellonong/sym_picture2/picture_wrist.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
@@ -21,10 +25,6 @@ class _rightArmState extends State<rightArm> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -69,7 +69,6 @@ class _rightArmState extends State<rightArm> {
                 ),
               ),
               //어깨
-
               Positioned(
                 bottom: screenHeight * 0.555,
                 left: screenWidth * 0.028,
@@ -77,7 +76,7 @@ class _rightArmState extends State<rightArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_shoulder()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -102,7 +101,7 @@ class _rightArmState extends State<rightArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_elbow()), // Replace Page3 with the desired page
                     );
                   },
                 child: Transform.rotate(
@@ -130,7 +129,7 @@ class _rightArmState extends State<rightArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_wrist()), // Replace Page3 with the desired page
                     );
                   },
                 child: Transform.rotate(
@@ -159,7 +158,7 @@ class _rightArmState extends State<rightArm> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => Picture_hand()), // Replace Page3 with the desired page
                     );
                   },
                   child: Container(

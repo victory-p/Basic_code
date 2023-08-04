@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hellonong/sym_picture/picture_eye.dart';
-import 'package:hellonong/sym_picture/picture_head.dart';
-import 'package:hellonong/sym_picture/picture_nose.dart';
-import 'package:hellonong/sym_picture/picture_teeth.dart';
-import 'package:hellonong/sym_picture/picture_ear.dart';
-import 'package:hellonong/sym_picture/picture_neck.dart';
-import 'package:hellonong/sym_picture/picture_cheek.dart';
-import 'package:hellonong/sym_picture/picture_chin.dart';
+import 'package:hellonong/sym_picture1/picture_eye.dart';
+import 'package:hellonong/sym_picture1/picture_head.dart';
+import 'package:hellonong/sym_picture1/picture_nose.dart';
+import 'package:hellonong/sym_picture1/picture_teeth.dart';
+import 'package:hellonong/sym_picture1/picture_ear.dart';
+import 'package:hellonong/sym_picture1/picture_neck.dart';
+import 'package:hellonong/sym_picture1/picture_cheek.dart';
+import 'package:hellonong/sym_picture1/picture_chin.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
@@ -28,10 +28,6 @@ class _FaceState extends State<Face> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
