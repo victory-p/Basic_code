@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 import 'package:hellonong/widget/appbar.dart';
 

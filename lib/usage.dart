@@ -144,6 +144,7 @@ class _UsageState extends State<Usage> {
           ),
         ),
       ),
+
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,

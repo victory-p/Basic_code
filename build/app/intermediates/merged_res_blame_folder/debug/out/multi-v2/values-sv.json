@@ -4,7 +4,11 @@
             "outputFile": "com.example.hellonong.app-mergeDebugResources-26:/values-sv/values-sv.xml",
             "map": [
                 {
+<<<<<<< HEAD
+                    "source": "C:\\Users\\qaz85\\.gradle\\caches\\transforms-3\\7e9df2ac2213a6bd3cef0f2f27870d79\\transformed\\core-1.6.0\\res\\values-sv\\values-sv.xml",
+=======
                     "source": "/Users/parkseungri/.gradle/caches/transforms-3/2fa18b2f544a798470f6ba6d29f55f60/transformed/core-1.8.0/res/values-sv/values-sv.xml",
+>>>>>>> upstream/main
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
