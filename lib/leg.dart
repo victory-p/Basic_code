@@ -5,6 +5,7 @@ import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'home.dart';
+import 'symptoms_category.dart';
 import 'main.dart';
 import 'mypage.dart';
 import 'bag.dart';
@@ -70,7 +71,7 @@ class _legState extends State<leg> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                  MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                 );
               },
                 child: Container(
@@ -91,7 +92,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -112,7 +113,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -133,7 +134,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(
@@ -154,7 +155,7 @@ class _legState extends State<leg> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()), // Replace Page3 with the desired page
+                      MaterialPageRoute(builder: (context) => SymptomsCategory()), // Replace Page3 with the desired page
                     );
                   },
                 child: Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/symptoms_category.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'mypage.dart';
@@ -136,7 +137,7 @@ class _SymptomsState extends State<Symptoms> {
                   Navigator.push(
                     context,
                     // 이동할 페이지 지정 (MyPage 대신 다른 페이지로 수정 가능)
-                    MaterialPageRoute(builder: (context) => Opinion()),
+                    MaterialPageRoute(builder: (context) => SymptomsCategory()),
                   );
                 },
                 child: Row(
@@ -161,7 +162,7 @@ class _SymptomsState extends State<Symptoms> {
               Navigator.push(
                 context,
                 // 이동할 페이지 지정 (MyPage 대신 다른 페이지로 수정 가능)
-                MaterialPageRoute(builder: (context) => Opinion()),
+                MaterialPageRoute(builder: (context) => SymptomsCategory()),
               );
             },
             child: Container(
