@@ -25,10 +25,6 @@ class _leftArmState extends State<leftArm> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
