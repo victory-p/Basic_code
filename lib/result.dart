@@ -159,6 +159,7 @@ class _ResultState extends State<Result> {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,

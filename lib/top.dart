@@ -164,6 +164,7 @@ class _TopState extends State<Top> {
             ],
           ),
         ),
+
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
