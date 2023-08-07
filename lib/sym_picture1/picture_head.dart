@@ -25,10 +25,6 @@ class _Picture_headState extends State<Picture_head> {
 
   // 바텀 네비게이션 바를 클릭할 때 호출되는 메서드
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');

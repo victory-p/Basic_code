@@ -8,18 +8,18 @@ import 'mypage.dart';
 import 'widget/bottomNavi.dart';
 
 class PharmacyNext extends StatefulWidget {
-  final List<bool> isSelected1;
-  final List<bool> isSelected2;
-  final List<bool> isSelected3;
+  final String Selected1;
+  final String Selected2;
+  final String Selected3;
   final String selectedDuration;
   final String selectedImage1; // 새로운 속성으로 선택된 이미지 저장
   final String selectedImage2;
   final String selectedImage3;
 
   PharmacyNext({
-    required this.isSelected1,
-    required this.isSelected2,
-    required this.isSelected3,
+    required this.Selected1,
+    required this.Selected2,
+    required this.Selected3,
     required this.selectedDuration,
     required this.selectedImage1,
     required this.selectedImage2,
@@ -60,12 +60,7 @@ class _PharmacyNextState extends State<PharmacyNext> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    bool isBeforeBreakfast = widget.isSelected1.isNotEmpty ? widget.isSelected1[0] : false;
-    bool isAfterBreakfast = widget.isSelected1.length > 1 ? widget.isSelected1[1] : false;
-    bool isBeforeLunch = widget.isSelected2.isNotEmpty ? widget.isSelected2[0] : false;
-    bool isAfterLunch = widget.isSelected2.length > 1 ? widget.isSelected2[1] : false;
-    bool isBeforeDinner = widget.isSelected3.isNotEmpty ? widget.isSelected3[0] : false;
-    bool isAfterDinner = widget.isSelected3.length > 1 ? widget.isSelected3[1] : false;
+
 
     return Scaffold(
       appBar: CustomAppBar(0, 0, context),
@@ -83,7 +78,7 @@ class _PharmacyNextState extends State<PharmacyNext> {
                 ),
                 SizedBox(width: 35),
                 Image.asset(
-                  isBeforeBreakfast ? 'assets/images/beforerice.png' : 'assets/images/afterrice.png',
+                  widget.Selected1,
                   width: screenWidth * 0.3,
                   height: screenHeight * 0.2,
                 ),
@@ -106,7 +101,7 @@ class _PharmacyNextState extends State<PharmacyNext> {
                 ),
                 SizedBox(width: 35),
                 Image.asset(
-                  isBeforeLunch ? 'assets/images/beforerice.png' : 'assets/images/afterrice.png',
+                  widget.Selected2,
                   width: screenWidth * 0.3,
                   height: screenHeight * 0.2,
                 ),
@@ -129,7 +124,7 @@ class _PharmacyNextState extends State<PharmacyNext> {
                 ),
                 SizedBox(width: 35),
                 Image.asset(
-                  isBeforeDinner ? 'assets/images/beforerice.png' : 'assets/images/afterrice.png',
+                  widget.Selected3,
                   width: screenWidth * 0.3,
                   height: screenHeight * 0.2,
                 ),

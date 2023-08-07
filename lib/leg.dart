@@ -10,6 +10,7 @@ import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 
 import 'home.dart';
+import 'symptoms_category.dart';
 import 'main.dart';
 import 'mypage.dart';
 import 'bag.dart';
@@ -26,10 +27,6 @@ class _legState extends State<leg> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');

@@ -31,10 +31,6 @@ class _Picture_cheekState extends State<Picture_cheek> {
 
   // 바텀 네비게이션 바를 클릭할 때 호출되는 메서드
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -164,7 +160,7 @@ class _Picture_cheekState extends State<Picture_cheek> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Bag(selectedProducts: selectedProducts, category: Category.cheek),
+        builder: (context) => Bag(),
       ),
     );
   }

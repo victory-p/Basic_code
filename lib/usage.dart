@@ -15,13 +15,9 @@ class Usage extends StatefulWidget {
 }
 
 class _UsageState extends State<Usage> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -43,6 +39,10 @@ class _UsageState extends State<Usage> {
   // 유튜브 동영상의 비디오 ID
   String videoId = 'F8cNkdi2J8M';
 
+  void _onCheckIconTapped() {
+    Navigator.pop(context); // 홈으로 돌아가는 동작
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -53,71 +53,98 @@ class _UsageState extends State<Usage> {
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 15),
-          child: Container(
-            width: screenWidth * 0.9,
-            height: screenHeight * 0.9,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Color(0xFFC1C1C1),
-                width: 1,
+          child: SingleChildScrollView(
+            child: Container(
+              width: screenWidth * 0.9,
+              height: screenHeight * 0.9,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: Color(0xFFC1C1C1),
+                  width: 1,
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        child: Text(
-                          '1', // 인덱스
-                          style: TextStyle(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor:
+                          Theme.of(context).colorScheme.primary,
+                          child: Text(
+                            '1', // 인덱스
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '제목',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              '부제목',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  // 유튜브 플레이어
+                  YoutubePlayer(
+                    controller: YoutubePlayerController(
+                      initialVideoId: videoId,
+                      flags: YoutubePlayerFlags(
+                        autoPlay: false,
+                        mute: false,
+                      ),
+                    ),
+                    showVideoProgressIndicator: true,
+                  ),
+                  SizedBox(height: screenHeight * 0.028),
+                  SizedBox(height: 20), // 원하는 만큼 간격 조절
+                  Align(
+                    alignment: Alignment.center,
+                    child: GestureDetector(
+                      onTap: _onCheckIconTapped, // 체크 아이콘 클릭 시 동작
+                      child: Container(
+                        width: screenWidth * 0.78,
+                        height: screenHeight * 0.065,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.check,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            size: 37,
                           ),
                         ),
                       ),
-                      SizedBox(width: 16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '제목',
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                          Text(
-                            '부제목',
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                // 유튜브 플레이어
-                YoutubePlayer(
-                  controller: YoutubePlayerController(
-                    initialVideoId: videoId,
-                    flags: YoutubePlayerFlags(
-                      autoPlay: false,
-                      mute: false,
                     ),
                   ),
-                  showVideoProgressIndicator: true,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
       ),
+
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,

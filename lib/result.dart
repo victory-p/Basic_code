@@ -20,10 +20,6 @@ class _ResultState extends State<Result> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -163,6 +159,7 @@ class _ResultState extends State<Result> {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,

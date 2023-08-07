@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/symptoms_category.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/test.dart';
 import 'bag.dart';
+import 'home.dart';
 import 'mypage.dart';
 import 'widget/bottomNavi.dart';
 
@@ -37,10 +39,6 @@ class _OpinionState extends State<Opinion> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -94,7 +92,7 @@ class _OpinionState extends State<Opinion> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyPage()),
+                        MaterialPageRoute(builder: (context) => SymptomsCategory()),
                       );
                     },
                     child: Row(
@@ -202,7 +200,7 @@ class _OpinionState extends State<Opinion> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
               },
               child: Text(
                 '확인',

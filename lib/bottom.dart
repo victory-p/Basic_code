@@ -24,10 +24,6 @@ class _BottomState extends State<Bottom> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -172,6 +168,7 @@ class _BottomState extends State<Bottom> {
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
+
     );
   }
 }

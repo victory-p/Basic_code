@@ -1,11 +1,24 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hellonong/widget/appbar.dart';
+import 'package:hellonong/widget/bottomNavi.dart';
+import 'list.dart';
 
-import 'widget/appbar.dart';
-import 'widget/bottomNavi.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Symptoms Category',
+      home: SymptomsCategory(),
+    );
+  }
+}
 
 class SymptomsCategory extends StatefulWidget {
-  const SymptomsCategory({super.key});
+  const SymptomsCategory({Key? key}) : super(key: key);
 
   @override
   State<SymptomsCategory> createState() => _SymptomsCategoryState();
@@ -15,10 +28,6 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
   int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -61,7 +70,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(0,0,context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -76,59 +85,63 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                 width: 1,
               ),
             ),
-            child: ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Center(
-                          child: Text(
-                            '증상에 대한 질병 명을\n카테고리 분류에 따라 선택해주세요',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                      Divider(thickness: 1, color: Colors.black38),
-                    ],
-                  );
-                } else {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(
                       child: Text(
-                        '$index',
+                        '증상에 대한 질병 명을\n카테고리 분류에 따라 선택해주세요',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${items[index].split('\n')[0]}',
-                          style: TextStyle(
-                            fontSize: 16,
+                  ),
+                  Divider(thickness: 1, color: Colors.black38),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: items.length - 1, // 수정
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () => _onListItemClicked(context, index), // 수정
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            backgroundColor: Theme.of(context).colorScheme.primary,
+                            child: Text(
+                              '${index + 1}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${items[index + 1].split('\n')[0]}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                '${items[index + 1].split('\n')[1]}',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          '${items[index].split('\n')[1]}',
-                          style: TextStyle(
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-              },
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -136,6 +149,15 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
+      ),
+    );
+  }
+
+  void _onListItemClicked(BuildContext context, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ListWidget(index: index),
       ),
     );
   }

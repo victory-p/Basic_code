@@ -5,6 +5,7 @@ import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 
+
 import 'body.dart';
 import 'mypage.dart';
 import 'bag.dart';
@@ -24,10 +25,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // 바텀 네비게이션 바를 클릭할 때 호출되는 메서드
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -56,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         .height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(1,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.fromLTRB(0, 26, 0, 0),
