@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hellonong/result.dart';
 import 'package:hellonong/symptoms_category.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'bag.dart';
@@ -220,10 +219,11 @@ class _OpinionState extends State<Opinion> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Result()), // 필요한 경우 주석 해제
-                );
+                // Pass the checked items back to the previous screen
+                Navigator.of(context).pop(widget.checkedItems);
+
+                // Navigate to the Result class
+                Navigator.pushNamed(context, '/result');
               },
               child: Text(
                 '확인',

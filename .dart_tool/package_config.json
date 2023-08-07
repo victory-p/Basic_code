@@ -158,6 +158,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
@@ -174,6 +180,12 @@
       "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/pointycastle-3.7.3",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///C:/Users/qaz85/AppData/Local/Pub/Cache/hosted/pub.dev/provider-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
@@ -260,7 +272,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-07T01:51:01.900187Z",
+  "generated": "2023-08-07T06:04:54.750824Z",
   "generator": "pub",
   "generatorVersion": "3.0.5"
 }
