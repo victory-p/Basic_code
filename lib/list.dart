@@ -3,7 +3,7 @@ import 'package:hellonong/widget/appbar.dart';
 import 'opinion.dart';
 
 final List<String> items = [
-'자주 사용되는 질병\n감기\n두드러기\n비염\n염증\n알레르기\n아토피\n외상',
+'자주 사용되는 진단\n감기\n두드러기\n비염\n염증\n알레르기\n아토피\n외상',
 '건강검진 진료 관련 용어\n고지혈증(이상지질혈증)\n고혈당\n낭종성\n빈혈\n저혈당\n타박상\n후유증',
 '이비인후과/청각장애 관련 용어\n미로염\n외이도염\n이경화증\n중이염\n만성중이염',
 '생식 및 임신/출산 관련 용어\n골반염\n산후우울증\n월경과다\n월경통\n임신중독증\n입덧\n자궁근종\n전립선염\n진통\n질염\n폐경\n풍진',
