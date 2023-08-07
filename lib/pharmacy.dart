@@ -27,6 +27,10 @@ class _PharmacyState extends State<Pharmacy> {
   int _selectedIndex = 2; // 바텀 네비게이션 바의 인덱스를 나타내는
 
   void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
     switch (index) {
       case 0:
         Navigator.pushNamed(context, '/');
@@ -43,10 +47,10 @@ class _PharmacyState extends State<Pharmacy> {
     }
   }
 
+  int breakfastIndex = -1; // -1은 미선택을 의미
+  int lunchIndex = -1;
+  int dinnerIndex = -1;
 
-  List<bool> _isSelected1 = [false, false];
-  List<bool> _isSelected2 = [false, false];
-  List<bool> _isSelected3 = [false, false];
   Test test = Test(1);
 
   String dropdownvalue1 = '몇분';
@@ -87,19 +91,24 @@ class _PharmacyState extends State<Pharmacy> {
                   children: <Widget>[
                     Text(
                       '식전',
-                      style: TextStyle(fontSize: 23, color: Colors.black),
+                      style: TextStyle(fontSize: 23),
                     ),
                     Text(
-                      '후',
-                      style: TextStyle(fontSize: 22, color: Colors.black),
+                      '식후',
+                      style: TextStyle(fontSize: 22),
                     ),
                   ],
-                  isSelected: _isSelected1,
-                  selectedColor: Colors.white,
+                  isSelected: [breakfastIndex == 0, breakfastIndex == 1],
+                  selectedColor: Colors.black,
                   fillColor: Theme.of(context).colorScheme.primaryContainer,
                   onPressed: (int index) {
                     setState(() {
-                      _isSelected1[index] = !_isSelected1[index];
+                      if (breakfastIndex == index) {
+                        // 이미 선택한 버튼을 다시 누르면 선택 해제
+                        breakfastIndex = -1;
+                      } else {
+                        breakfastIndex = index;
+                      }
                     });
                   },
                 ),
@@ -149,16 +158,21 @@ class _PharmacyState extends State<Pharmacy> {
                       style: TextStyle(fontSize: 23),
                     ),
                     Text(
-                      '후',
+                      '식후',
                       style: TextStyle(fontSize: 22),
                     ),
                   ],
-                  isSelected: _isSelected2,
+                  isSelected: [lunchIndex == 0, lunchIndex == 1],
                   selectedColor: Colors.black,
                   fillColor: Theme.of(context).colorScheme.primaryContainer,
                   onPressed: (int index) {
                     setState(() {
-                      _isSelected2[index] = !_isSelected2[index];
+                      if (lunchIndex == index) {
+                        // 이미 선택한 버튼을 다시 누르면 선택 해제
+                        lunchIndex = -1;
+                      } else {
+                        lunchIndex = index;
+                      }
                     });
                   },
                 ),
@@ -209,16 +223,21 @@ class _PharmacyState extends State<Pharmacy> {
                       style: TextStyle(fontSize: 23),
                     ),
                     Text(
-                      '후',
+                      '식후',
                       style: TextStyle(fontSize: 22),
                     ),
                   ],
-                  isSelected: _isSelected3,
+                  isSelected: [dinnerIndex == 0, dinnerIndex == 1],
                   selectedColor: Colors.black,
                   fillColor: Theme.of(context).colorScheme.primaryContainer,
                   onPressed: (int index) {
                     setState(() {
-                      _isSelected3[index] = !_isSelected3[index];
+                      if (dinnerIndex == index) {
+                        // 이미 선택한 버튼을 다시 누르면 선택 해제
+                        dinnerIndex = -1;
+                      } else {
+                        dinnerIndex = index;
+                      }
                     });
                   },
                 ),
@@ -343,9 +362,9 @@ class _PharmacyState extends State<Pharmacy> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => PharmacyNext(
-                      isSelected1: _isSelected1,
-                      isSelected2: _isSelected2,
-                      isSelected3: _isSelected3,
+                      Selected1: _getImageForBreakfastStatus(breakfastIndex),
+                      Selected2: _getImageForLunchStatus(lunchIndex),
+                      Selected3: _getImageForDinnerStatus(dinnerIndex),
                       selectedDuration: dropdownvalue4, // Pass the selected duration to PharmacyNext
                       selectedImage1: _getImageForDropdownValue(dropdownvalue1),
                       selectedImage2: _getImageForDropdownValue(dropdownvalue2),
@@ -366,7 +385,7 @@ class _PharmacyState extends State<Pharmacy> {
   String _getImageForDropdownValue(String dropdownValue) {
     switch (dropdownValue) {
       case '몇분':
-        return 'assets/images/default.png';
+        return 'assets/images/placeholder.png';
       case '10분':
         return 'assets/images/10minutes.png';
       case '30분':
@@ -378,3 +397,34 @@ class _PharmacyState extends State<Pharmacy> {
     }
   }
 }
+
+String _getImageForBreakfastStatus(int breakfastindex) {
+  if (breakfastindex == 0) {
+    return 'assets/images/beforerice.png'; // 식전 이미지 경로
+  } else if (breakfastindex == 1) {
+    return 'assets/images/afterrice.png'; // 식후 이미지 경로
+  } else {
+    return 'assets/images/placeholder.png'; // 기본 이미지 경로
+  }
+}
+
+String _getImageForLunchStatus(int lunchIndex) {
+  if (lunchIndex == 0) {
+    return 'assets/images/beforerice.png'; // 식전 이미지 경로
+  } else if (lunchIndex == 1) {
+    return 'assets/images/afterrice.png'; // 식후 이미지 경로
+  } else {
+    return 'assets/images/placeholder.png'; // 기본 이미지 경로
+  }
+}
+
+String _getImageForDinnerStatus(int dinnerIndex) {
+  if (dinnerIndex == 0) {
+    return 'assets/images/beforerice.png'; // 식전 이미지 경로
+  } else if (dinnerIndex == 1) {
+    return 'assets/images/afterrice.png'; // 식후 이미지 경로
+  } else {
+    return 'assets/images/placeholder.png'; // 기본 이미지 경로
+  }
+}
+
