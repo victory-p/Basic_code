@@ -22,7 +22,7 @@ final List<String> items = [
 ];
 
 class ListWidget extends StatefulWidget {
-  final int index; // 인덱스 값을 받아오는 변수
+  final int index;
 
   const ListWidget({Key? key, required this.index}) : super(key: key);
 
@@ -31,12 +31,15 @@ class ListWidget extends StatefulWidget {
 }
 
 class _ListWidgetState extends State<ListWidget> {
-  late List<bool> isSelected; // List to store selection state for each item
+  late List<bool> isSelected;
 
   @override
   void initState() {
     super.initState();
-    isSelected = List.generate(items[widget.index].split('\n').length, (index) => false);
+    isSelected = List.generate(
+      items[widget.index].split('\n').length - 1,
+          (index) => false,
+    );
   }
 
   @override
@@ -45,73 +48,79 @@ class _ListWidgetState extends State<ListWidget> {
     final title = itemsSplit[0];
     final checkboxText = itemsSplit.sublist(1);
 
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: CustomAppBar(0, 0, context),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(10),
-            child: Container(
-              width: screenWidth * 0.9,
-              height: screenHeight * 0.9,
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onPrimary,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.black38,
-                  width: 1,
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.onPrimary,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: Colors.black38,
+                width: 1,
+              ),
+            ),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text(
+                    title,
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
-              ),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(
-                      title,
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    trailing: widget.index == 0 ? null : Checkbox( // Check if it's the first item
-                      value: isSelected[0],
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isSelected[0] = value!;
-                        });
-                      },
-                    ),
+                Divider(thickness: 1, color: Colors.black38),
+                Expanded( // 이 부분을 Expanded로 감싸줍니다.
+                  child: ListView.builder(
+                    itemCount: checkboxText.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                              child: Text(
+                                '${index + 1}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Text(
+                                checkboxText[index],
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                            Checkbox(
+                              value: isSelected[index],
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isSelected[index] = value!;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: checkboxText.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(
-                            checkboxText[index],
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          trailing: Checkbox(
-                            value: isSelected[index + 1],
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isSelected[index + 1] = value!;
-                              });
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
       ),
       floatingActionButton: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) =>
-              Opinion())); // Assuming Opinion is correctly implemented
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => Opinion()));
         },
         child: Container(
           width: 100,
