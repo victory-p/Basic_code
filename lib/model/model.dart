@@ -1,10 +1,25 @@
 enum Category {
-  head,
   cheek,
-  chest,
+  chin,
+  ear,
+  eye,
+  head,
+  neck,
+  nose,
+  teeth,
+  elbow,
+  hand,
+  shoulder,
+  wrist,
   arm,
-  thigh,
+  chest,
+  stomach,
+  waist,
   leg,
+  hip,
+  organ,
+  pelvis,
+  thigh,
 }
 
 class Product {
