@@ -23,12 +23,12 @@ class CustomAppBar extends AppBar {
     backgroundColor: Theme.of(context).colorScheme.primary,
     actions: [
       IconButton(
-        onPressed: () {
-          // Navigate to the Bag page when the button is pressed.
+       onPressed: () {
+       /*   // Navigate to the Bag page when the button is pressed.
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Bag()),
-          );
+            MaterialPageRoute(builder: (context) => Bag(selectedProducts: [],)),
+          );*/
         },
         icon: Container(
           width: 42, // 이미지의 너비

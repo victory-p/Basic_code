@@ -1,5 +1,6 @@
 enum Category {
   head,
+  cheek,
   chest,
   arm,
   thigh,
