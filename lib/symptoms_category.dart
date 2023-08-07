@@ -107,7 +107,7 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                     itemCount: items.length - 1, // 수정
                     itemBuilder: (context, index) {
                       return GestureDetector(
-                        onTap: () => _onListItemClicked(context, index + 1), // 수정
+                        onTap: () => _onListItemClicked(context, index), // 수정
                         child: ListTile(
                           leading: CircleAvatar(
                             backgroundColor: Theme.of(context).colorScheme.primary,
