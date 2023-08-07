@@ -104,10 +104,10 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: items.length,
+                    itemCount: items.length - 1, // 수정
                     itemBuilder: (context, index) {
                       return GestureDetector(
-                        onTap: () => _onListItemClicked(context, index),
+                        onTap: () => _onListItemClicked(context, index + 1), // 수정
                         child: ListTile(
                           leading: CircleAvatar(
                             backgroundColor: Theme.of(context).colorScheme.primary,
@@ -123,13 +123,13 @@ class _SymptomsCategoryState extends State<SymptomsCategory> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${items[index+1].split('\n')[0]}',
+                                '${items[index + 1].split('\n')[0]}',
                                 style: TextStyle(
                                   fontSize: 16,
                                 ),
                               ),
                               Text(
-                                '${items[index+1].split('\n')[1]}',
+                                '${items[index + 1].split('\n')[1]}',
                                 style: TextStyle(
                                   fontSize: 14,
                                 ),
