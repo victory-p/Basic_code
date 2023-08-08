@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hellonong/body.dart';
+import 'package:hellonong/symptoms.dart';
 import 'package:hellonong/util/color_schemes.g.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 import 'package:hellonong/widget/appbar.dart';
+import 'package:provider/provider.dart';
 
+import 'app.dart';
 import 'model/model.dart';
 
 class Bag extends StatefulWidget {
   final List<Product> selectedProducts;
-
   Bag({required this.selectedProducts});
 
   @override
@@ -44,6 +46,7 @@ class _BagState extends State<Bag> {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
@@ -170,7 +173,7 @@ class _BagState extends State<Bag> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TestScreen(),
+                        builder: (context) => Symptoms(),
                       ),
                     );
                   },
