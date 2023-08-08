@@ -37,49 +37,24 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppState extends ChangeNotifier {
-  List<String> wishs = [];
-  List<String> sym = [];
-  List<String> picture = [];
+  List<String> bags = [];
   List<String> imageURLs = [];
   List<String> ids = [];
-  int favoriteCount = 41;
+
+  int get favoriteCount => bags.length; // 즐겨찾기한 상품의 개수를 리스트의 길이로 계산
+
   List<String> wishids = [];
 
-  void toggleWish(
-    String name,
-    String price,
-    String description,
-    String imageURL,
-    String id,
-  ) {
-    if (wishs.contains(name)) {
-      wishs.remove(name);
-      sym.remove(price);
-      picture.remove(description);
+  void toggleBags(String name, String description, String imageURL, String id,) {
+    if (bags.contains(name)) {
+      bags.remove(name);
       imageURLs.remove(imageURL);
       ids.remove(id);
-      //FirebaseFirestore.instance.collection('WiSH').doc(id).delete();
     } else {
-      wishs.add(name);
-      sym.add(price);
-      picture.add(description);
+      bags.add(name);
       imageURLs.add(imageURL);
       ids.add(id);
     }
-    notifyListeners();
-  }
-
-  void toggleFavorite() {
-    notifyListeners();
-  }
-
-  void incNum() {
-    favoriteCount++;
-    notifyListeners();
-  }
-
-  void decNum() {
-    favoriteCount--;
     notifyListeners();
   }
 }
