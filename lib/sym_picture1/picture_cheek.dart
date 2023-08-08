@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:hellonong/bag.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/model/model.dart';
 import 'package:hellonong/model/head_sym.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
-
-import '../home.dart';
 
 class Picture_cheek extends StatefulWidget {
   const Picture_cheek({Key? key}) : super(key: key);
@@ -13,14 +13,20 @@ class Picture_cheek extends StatefulWidget {
   State<Picture_cheek> createState() => _Picture_cheekState();
 }
 
-class _CardState {
+class _CardState extends ChangeNotifier {
   bool isChecked;
+  String name;
 
-  _CardState({this.isChecked = false}); // isChecked를 선택적으로 받도록 변경
+  _CardState({this.isChecked = false, required this.name});
+
+  void toggleChecked() {
+    isChecked = !isChecked;
+    notifyListeners();
+  }
 }
 
-
 class _Picture_cheekState extends State<Picture_cheek> {
+  List<_CardState> cardStates = [];
   int _selectedIndex = 1; // 바텀 네비게이션 바의 인덱스를 나타냄
 
   // 바텀 네비게이션 바를 클릭할 때 호출되는 메서드
@@ -41,87 +47,122 @@ class _Picture_cheekState extends State<Picture_cheek> {
     }
   }
 
-  List<_CardState> cardStates = List.generate(10, (_) => _CardState());
+  @override
+  void initState() {
+    super.initState();
+    List<Product> products = ProductsRepository.loadProducts(Category.cheek);
+    List<Product> filteredProducts =
+    products.where((product) => product.id.startsWith('7-')).toList();
+
+    cardStates = List.generate(
+      filteredProducts.length,
+          (index) => _CardState(
+        name: filteredProducts[index].name,
+      ),
+    );
+  }
 
   List<Widget> _buildGridCards(BuildContext context) {
-    List<Product> products = ProductsRepository.loadProducts(Category.head);
+    List<Product> products = ProductsRepository.loadProducts(Category.cheek);
 
     if (products.isEmpty) {
       return const <Widget>[];
     }
 
-    List<Product> filteredProducts = products.where((product) => product.id.startsWith('7-')).toList();
+    List<Product> filteredProducts =
+    products.where((product) => product.id.startsWith('7-')).toList();
 
     return filteredProducts.map((product) {
-      int index = int.parse(product.id.split('-')[1]); // Parse the string to get the integer index
-      return Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-          side: BorderSide(color: Colors.black, width: 1.2), // 테두리의 색상과 두께 설정
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Container(
-          color: Colors.white, // 카드 내부 컨텐츠의 배경색을 흰색으로 설정
-          child: Stack(
-            // Stack을 사용하여 체크박스와 이미지 겹치기
-            children: <Widget>[
-              Positioned.fill(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      int index = int.parse(product.id.split('-')[1]);
+      return ChangeNotifierProvider.value(
+        value: cardStates[index],
+        child: Consumer<_CardState>(
+          builder: (context, cardState, _) {
+            return Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+                side: BorderSide(color: Colors.black, width: 1.2),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: Container(
+                color: Colors.white,
+                child: Stack(
                   children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(15.0, 5.0, 5.0, 5.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              product.name,
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
+                    Positioned.fill(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            child: Padding(
+                              padding:
+                              const EdgeInsets.fromLTRB(15.0, 5.0, 5.0, 5.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    product.name,
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                  const SizedBox(height: 8.0),
+                                ],
                               ),
-                              maxLines: 1,
                             ),
-                            const SizedBox(height: 8.0),
-                          ],
-                        ),
+                          ),
+                          AspectRatio(
+                            aspectRatio: 18 / 15,
+                            child: Image.asset(
+                              'assets/images/sym/cheek/${product.id}.png',
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    AspectRatio(
-                      aspectRatio: 18 / 15,
-                      child: Image.asset(
-                        //fit: BoxFit.fitWidth,
-                        'assets/images/sym/cheek/${product.id}.png', // 이미지 가져오기
+                    Positioned(
+                      top: 4.0,
+                      right: 4.0,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              cardState.toggleChecked();
+                            });
+                          },
+                          icon: cardState.isChecked
+                              ? Icon(Icons.check_box)
+                              : Icon(Icons.check_box_outline_blank),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-              Positioned(
-                top: 4.0,
-                right: 4.0,
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        cardStates[index].isChecked =
-                        !cardStates[index].isChecked;
-                      });
-                    },
-                    icon: cardStates[index].isChecked
-                        ? Icon(Icons.check_box)
-                        : Icon(Icons.check_box_outline_blank),
-                  ),
-                ),
-              ),
-            ],
-          ),
+            );
+          },
         ),
       );
     }).toList();
+  }
+
+  void _goToBagPage() {
+    List<Product> selectedProducts = cardStates.asMap().entries
+        .where((entry) => entry.value.isChecked)
+        .map((entry) {
+      List<Product> products = ProductsRepository.loadProducts(Category.cheek);
+      return products[entry.key];
+    }).toList();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Bag(),
+      ),
+    );
   }
 
   @override
@@ -130,22 +171,18 @@ class _Picture_cheekState extends State<Picture_cheek> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, 0, context),
-      body: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(16.0),
-        childAspectRatio: screenWidth / (screenHeight * 0.531),
-        children: _buildGridCards(context),
+      appBar: CustomAppBar(0, 0, context,),
+      body: SafeArea(
+        child: GridView.count(
+          crossAxisCount: 2,
+          padding: const EdgeInsets.all(16.0),
+          childAspectRatio: screenWidth / (screenHeight * 0.531),
+          children: _buildGridCards(context),
+          shrinkWrap: true, // 크기를 조정하는 설정
+        ),
       ),
       floatingActionButton: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MyHomePage(),
-            ),
-          );
-        },
+        onTap: _goToBagPage,
         child: Container(
           width: 100,
           height: 50,

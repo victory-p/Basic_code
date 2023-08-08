@@ -179,32 +179,32 @@ class ProductsRepository {
         name: '알레르기',
       ),
       Product(
-        category: Category.head,
+        category: Category.cheek,
         id: '7-0',
         name: '볼 통증',
       ),
       Product(
-        category: Category.head,
+        category: Category.cheek,
         id: '7-1',
         name: '볼이 부었어요',
       ),
       Product(
-        category: Category.head,
+        category: Category.cheek,
         id: '7-2',
         name: '볼 부상(피/상처)',
       ),
       Product(
-        category: Category.head,
+        category: Category.cheek,
         id: '7-3',
         name: '여드름이 심해요',
       ),
       Product(
-        category: Category.head,
+        category: Category.cheek,
         id: '7-4',
         name: '얼굴이 노래요',
       ),
       Product(
-        category: Category.head,
+        category: Category.cheek,
         id: '7-5',
         name: '홍조가 나타나요',
       ),

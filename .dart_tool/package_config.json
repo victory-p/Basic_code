@@ -98,6 +98,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_provider",
+      "rootUri": "file:///Users/parkseungri/.pub-cache/hosted/pub.dev/flutter_provider-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/parkseungri/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -158,6 +164,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///Users/parkseungri/.pub-cache/hosted/pub.dev/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///Users/parkseungri/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
@@ -174,6 +186,12 @@
       "rootUri": "file:///Users/parkseungri/.pub-cache/hosted/pub.dev/pointycastle-3.7.3",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///Users/parkseungri/.pub-cache/hosted/pub.dev/provider-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
@@ -260,7 +278,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-04T07:46:19.501459Z",
+  "generated": "2023-08-08T02:10:54.438147Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

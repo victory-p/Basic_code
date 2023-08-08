@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hellonong/result.dart';
 import 'package:hellonong/symptoms_category.dart';
 import 'package:hellonong/widget/appbar.dart';
-import 'package:hellonong/widget/test.dart';
 import 'bag.dart';
 import 'home.dart';
 import 'mypage.dart';
@@ -29,7 +29,9 @@ class ChecklistItem {
 }
 
 class Opinion extends StatefulWidget {
-  const Opinion({super.key});
+  final List<String> checkedItems;
+
+  Opinion({required this.checkedItems, Key? key}) : super(key: key);
 
   @override
   State<Opinion> createState() => _OpinionState();
@@ -55,12 +57,21 @@ class _OpinionState extends State<Opinion> {
     }
   }
 
-  List<ListItemData> opinionData = [
-    ListItemData(isSwitched: true, color: Colors.black, body: "머리", opinion: "감기"),
-    ListItemData(isSwitched: true, color: Colors.black, body: "코", opinion: "비염"),
-  ];
+  List<ListItemData> opinionData = [];
 
-  Test test = Test(0);
+  @override
+  void initState() {
+    super.initState();
+    // Set default checked status based on the checked items passed from the previous screen
+    for (String checkedItem in widget.checkedItems) {
+      opinionData.add(ListItemData(
+        isSwitched: true,
+        color: Colors.black,
+        body: "머리", // Replace with actual value
+        opinion: checkedItem,
+      ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +79,7 @@ class _OpinionState extends State<Opinion> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, 1 ,context),
+      appBar: CustomAppBar(0, 1, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
@@ -115,7 +126,7 @@ class _OpinionState extends State<Opinion> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 0.05, // 원하는 위치로 조정
+                  top: screenHeight * 0.05,
                   child: Text(
                     '<의사소견서>',
                     style: TextStyle(
@@ -125,22 +136,32 @@ class _OpinionState extends State<Opinion> {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 0.15, // 원하는 위치로 조정
+                  top: screenHeight * 0.15,
                   left: 20,
                   right: 20,
                   bottom: 20,
                   child: ListView.builder(
-                    itemCount: opinionData.length,
+                    itemCount: widget.checkedItems.length,
                     itemBuilder: (context, index) {
-                      ListItemData listItem = opinionData[index];
+                      String checkedItem = widget.checkedItems[index];
+                      bool isSwitched = opinionData.any((item) => item.opinion == checkedItem);
                       return CheckboxListTile(
-                        value: listItem.isSwitched,
+                        value: isSwitched,
                         onChanged: (value) {
                           setState(() {
-                            opinionData[index].isSwitched = value ?? false;
+                            if (value == true) {
+                              opinionData.add(ListItemData(
+                                isSwitched: true,
+                                color: Colors.black,
+                                body: "머리", // Replace with actual value
+                                opinion: checkedItem,
+                              ));
+                            } else {
+                              opinionData.removeWhere((item) => item.opinion == checkedItem);
+                            }
                           });
                         },
-                        title: Text(listItem.opinion),
+                        title: Text(checkedItem),
                       );
                     },
                   ),
@@ -159,10 +180,10 @@ class _OpinionState extends State<Opinion> {
           _showDialog();
         },
         child: Container(
-          width: 100, // 너비를 늘려서 가로로 긴 버튼으로 만듭니다.
+          width: 100,
           height: 50,
           decoration: BoxDecoration(
-            shape: BoxShape.rectangle, // 사각형 모양의 버튼 사용
+            shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(10.0),
             image: DecorationImage(
               image: AssetImage('assets/images/checkbox.png'),
@@ -182,7 +203,7 @@ class _OpinionState extends State<Opinion> {
           content: Text(
             '선택하신 질병은 환자에게 수어 영상으로 제공됩니다. 정확한 진단이 완료되었다면 확인 버튼을 눌러주세요.',
             style: TextStyle(
-              fontSize: 17, // 다이얼로그 내용 텍스트 사이즈 변경
+              fontSize: 17,
             ),
           ),
           actions: [
@@ -193,19 +214,21 @@ class _OpinionState extends State<Opinion> {
               child: Text(
                 '닫기',
                 style: TextStyle(
-                  color: Colors.black38, // 닫기 버튼 텍스트 색상 변경
+                  color: Colors.black38,
                 ),
               ),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Result()), // 필요한 경우 주석 해제
+                );
               },
               child: Text(
                 '확인',
                 style: TextStyle(
-                  color: Colors.blueAccent, // 확인 버튼 텍스트 색상 변경
+                  color: Colors.blueAccent,
                 ),
               ),
             ),

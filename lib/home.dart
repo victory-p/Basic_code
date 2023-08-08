@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         .height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(1,0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.fromLTRB(0, 26, 0, 0),
