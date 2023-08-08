@@ -12,8 +12,7 @@ class CustomAppBar extends AppBar {
     leading: _buttonIndex == 1 // Check if _buttonIndex is 1
         ? null // Set leading to null if _buttonIndex is 1 to hide the back button
         : IconButton(
-      onPressed: () {
-        // Navigate back when the back button is pressed.
+        onPressed: () {
         Navigator.pop(context);
       },
       icon: Icon(

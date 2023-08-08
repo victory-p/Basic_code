@@ -8,7 +8,6 @@ flutter --quiet assemble --no-version-check --depfile C:\Users\qaz85\flutter\Bas
 ## exception
 
 FormatException: FormatException: Unexpected character (at character 1)
-<<<<<<< HEAD
 ^
 
 

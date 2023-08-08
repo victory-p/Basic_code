@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hellonong/util/color_schemes.g.dart';
+import 'package:hellonong/symptoms.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 import 'package:hellonong/widget/test.dart';
 import 'package:hellonong/widget/appbar.dart';
 
 import 'main.dart';
+import 'body.dart';
 import 'mypage.dart';
 
 class Bag extends StatefulWidget {
@@ -34,15 +35,13 @@ class _BagState extends State<Bag> {
     }
   }
 
-  Test test = Test(1);
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(0, 0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
@@ -68,48 +67,57 @@ class _BagState extends State<Bag> {
                     height: screenHeight * 0.095,
                   ),
                 ),
-                Positioned(
-                  bottom: screenHeight * 0.028,
-                  left: screenWidth * 0.05,
-                  child: Container(
-                    width: screenWidth * 0.38,
-                    height: screenHeight * 0.065,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 37,
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: screenHeight * 0.028,
-                  right: screenWidth * 0.05,
-                  child: Container(
-                    width: screenWidth * 0.38,
-                    height: screenHeight * 0.065,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                        size: 37,
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 150,
+            height: 60,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TestScreen(),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 30,
+              ),
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
+          ),
+          SizedBox(width: 10),
+          SizedBox(
+            width: 150,
+            height: 60,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Symptoms(),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.check,
+                color: Colors.white,
+                size: 30,
+              ),
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationWidget(
         selectedIndex: _selectedIndex,

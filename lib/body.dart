@@ -72,7 +72,7 @@ class _TestScreenState extends State<TestScreen> {
         .height;
 
     return Scaffold(
-      appBar: CustomAppBar(0,0, context),
+      appBar: CustomAppBar(0,0, context,),
       body: Padding(
         padding: EdgeInsets.only(top: 20.0),
         child: Column(
