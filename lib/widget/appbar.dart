@@ -14,8 +14,8 @@ class CustomAppBar extends AppBar {
         : IconButton(
         onPressed: () {
         Navigator.pop(context);
-      },
-      icon: Icon(
+        },
+        icon: Icon(
         Icons.arrow_back_ios,
         size: 40,
         color: Colors.white,
@@ -29,7 +29,7 @@ class CustomAppBar extends AppBar {
             // Navigate to the Bag page when the button is pressed.
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Bag()),
+              MaterialPageRoute(builder: (context) => Bag(selectedProducts: [],)),
             );
           },
           icon: Container(

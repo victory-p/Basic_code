@@ -6,6 +6,8 @@ import 'package:hellonong/model/model.dart';
 import 'package:hellonong/model/head_sym.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
 
+import '../home.dart';
+
 class Picture_cheek extends StatefulWidget {
   const Picture_cheek({Key? key}) : super(key: key);
 
@@ -18,7 +20,6 @@ class _CardState extends ChangeNotifier {
   String name;
 
   _CardState({this.isChecked = false, required this.name});
-
   void toggleChecked() {
     isChecked = !isChecked;
     notifyListeners();
@@ -26,10 +27,8 @@ class _CardState extends ChangeNotifier {
 }
 
 class _Picture_cheekState extends State<Picture_cheek> {
-  List<_CardState> cardStates = [];
-  int _selectedIndex = 1; // 바텀 네비게이션 바의 인덱스를 나타냄
+  int _selectedIndex = 1;
 
-  // 바텀 네비게이션 바를 클릭할 때 호출되는 메서드
   void _onItemTapped(int index) {
     switch (index) {
       case 0:
@@ -46,6 +45,7 @@ class _Picture_cheekState extends State<Picture_cheek> {
         break;
     }
   }
+  List<_CardState> cardStates = [];
 
   @override
   void initState() {
@@ -160,7 +160,7 @@ class _Picture_cheekState extends State<Picture_cheek> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Bag(),
+        builder: (context) => Bag(selectedProducts: selectedProducts,),
       ),
     );
   }
@@ -171,15 +171,12 @@ class _Picture_cheekState extends State<Picture_cheek> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(0, 0, context,),
-      body: SafeArea(
-        child: GridView.count(
-          crossAxisCount: 2,
-          padding: const EdgeInsets.all(16.0),
-          childAspectRatio: screenWidth / (screenHeight * 0.531),
-          children: _buildGridCards(context),
-          shrinkWrap: true, // 크기를 조정하는 설정
-        ),
+      appBar: CustomAppBar(0, 0, context),
+      body: GridView.count(
+        crossAxisCount: 2,
+        padding: const EdgeInsets.all(16.0),
+        childAspectRatio: screenWidth / (screenHeight * 0.531),
+        children: _buildGridCards(context),
       ),
       floatingActionButton: GestureDetector(
         onTap: _goToBagPage,

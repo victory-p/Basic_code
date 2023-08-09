@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hellonong/symptoms_category.dart';
+import 'package:hellonong/listtwo.dart';
+import 'package:hellonong/result.dart';
 import 'package:hellonong/widget/appbar.dart';
 import 'package:hellonong/widget/bottomNavi.dart';
-
-import 'list.dart';
 
 class ListItemData {
   bool isSwitched;
@@ -112,8 +111,7 @@ class _OpinionState extends State<Opinion> {
                         itemCount: widget.checkedItems.length,
                         itemBuilder: (context, index) {
                           String checkedItem = widget.checkedItems[index];
-                          bool isSwitched =
-                          opinionData.any((item) => item.opinion == checkedItem);
+                          bool isSwitched = opinionData.any((item) => item.opinion == checkedItem);
                           return CheckboxListTile(
                             value: isSwitched,
                             onChanged: (value) {
@@ -127,8 +125,7 @@ class _OpinionState extends State<Opinion> {
                                   ));
                                   widget.onAddItem(checkedItem); // 항목 추가
                                 } else {
-                                  opinionData
-                                      .removeWhere((item) => item.opinion == checkedItem);
+                                  opinionData.removeWhere((item) => item.opinion == checkedItem);
                                   widget.onRemoveItem(checkedItem); // 항목 제거
                                 }
                               });
@@ -141,6 +138,29 @@ class _OpinionState extends State<Opinion> {
                   ],
                 ),
               ),
+              Positioned(
+                bottom: screenHeight * 0.08,
+                child: ElevatedButton(
+                  onPressed: _navigateToListWidget,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.add, color: Colors.white),
+                      SizedBox(width: 5),
+                      Text(
+                        '기타 소견, 안내사항 작성',
+                        style: TextStyle(fontSize: 14, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).colorScheme.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -149,11 +169,8 @@ class _OpinionState extends State<Opinion> {
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
-
       floatingActionButton: GestureDetector(
-        onTap: () {
-          _showDialog();
-        },
+        onTap: _showDialog,
         child: Container(
           width: 100,
           height: 50,
@@ -170,11 +187,27 @@ class _OpinionState extends State<Opinion> {
     );
   }
 
-  void _navigateToListWidget() {
-    Navigator.push(
+  void _navigateToListWidget() async {
+    final selectedItems = await Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => SymptomsCategory()),
+      MaterialPageRoute(
+        builder: (context) => ListTwo(checkedItems: opinionData.map((item) => item.opinion).toList()),
+      ),
     );
+
+    if (selectedItems != null) {
+      setState(() {
+        for (String item in selectedItems) {
+          opinionData.add(ListItemData(
+            isSwitched: true,
+            color: Colors.black,
+            body: "머리", // Replace with actual value
+            opinion: item,
+          ));
+          widget.onAddItem(item); // 항목 추가
+        }
+      });
+    }
   }
 
   void _showDialog() {
@@ -203,7 +236,10 @@ class _OpinionState extends State<Opinion> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                // TODO: "완료" 버튼을 눌렀을 때 처리할 내용 추가
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Result()), // Result 클래스로 이동
+                );
               },
               child: Text(
                 '확인',
