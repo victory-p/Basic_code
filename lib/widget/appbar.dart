@@ -11,12 +11,11 @@ class CustomAppBar extends AppBar {
       : super(
     leading: _buttonIndex == 1 // Check if _buttonIndex is 1
         ? null // Set leading to null if _buttonIndex is 1 to hide the back button
-        : IconButton(
+        :  IconButton(
         onPressed: () {
-        // 현재 페이지 이전에 있는 동일한 페이지들을 모두 제거한 후 이전 페이지로 이동
-        Navigator.of(context).popUntil((route) => route.isFirst);
-      },
-      icon: Icon(
+        Navigator.pop(context);
+        },
+        icon: Icon(
         Icons.arrow_back_ios,
         size: 40,
         color: Colors.white,
