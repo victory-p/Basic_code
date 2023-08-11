@@ -49,7 +49,7 @@ class _UsageState extends State<Usage> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: CustomAppBar(1, 0, context),
+      appBar: CustomAppBar(0, 0, context),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 15),

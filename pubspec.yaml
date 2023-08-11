@@ -154,7 +154,7 @@ flutter:
     - assets/images/sym/elbow/3-1.png
     - assets/images/sym/elbow/3-2.png
     - assets/images/sym/elbow/3-3.png
-    #- assets/images/sym/elbow/3-4.png
+    - assets/images/sym/elbow/3-4.png
     - assets/images/sym/elbow/3-5.png
     - assets/images/sym/elbow/3-6.png
     - assets/images/sym/elbow/3-7.png
